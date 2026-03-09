@@ -1,0 +1,2471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-i18n="meta-title">Yuman — Human Intelligence. AI Amplified.</title>
+<meta name="description" data-i18n-attr="content" data-i18n="meta-desc" content="Yuman helps businesses innovate, automate, and grow by combining human strategy with AI-powered systems.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --black: #0a0a0a;
+  --dark: #1a1a1a;
+  --gray-900: #2a2a2a;
+  --gray-700: #555;
+  --gray-500: #888;
+  --gray-300: #c8c8c8;
+  --gray-200: #ddd;
+  --gray-100: #f0f0f0;
+  --light: #f7f7f7;
+  --white: #ffffff;
+  --explorer: #D97706;
+  --builder: #2563EB;
+  --optimizer: #059669;
+  --accelerator: #7C3AED;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--dark);
+  background: var(--white);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* ——— UTILITY ——— */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 clamp(1.5rem, 5vw, 4rem);
+}
+
+section {
+  padding: clamp(5rem, 10vw, 9rem) 0;
+}
+
+/* ——— TYPOGRAPHY ——— */
+h1, h2, h3, h4 {
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+h1 { font-size: clamp(2.8rem, 6vw, 5rem); letter-spacing: -0.035em; }
+h2 { font-size: clamp(2rem, 4vw, 3rem); }
+h3 { font-size: clamp(1.15rem, 2vw, 1.35rem); font-weight: 600; }
+h4 { font-size: 1.05rem; font-weight: 600; }
+
+p { color: var(--gray-700); }
+
+.label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gray-500);
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+/* ——— BUTTONS ——— */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  letter-spacing: 0.01em;
+}
+
+.btn--primary {
+  background: var(--black);
+  color: var(--white);
+  padding: 1rem 2.2rem;
+}
+
+.btn--primary:hover {
+  background: var(--gray-900);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+.btn--secondary {
+  background: transparent;
+  color: var(--dark);
+  padding: 1rem 0;
+  border-bottom: 1.5px solid var(--dark);
+}
+
+.btn--secondary:hover {
+  border-color: var(--gray-500);
+  color: var(--gray-700);
+}
+
+.btn--arrow::after {
+  content: '→';
+  transition: transform 0.3s ease;
+}
+
+.btn--arrow:hover::after {
+  transform: translateX(4px);
+}
+
+/* ——— NAV ——— */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--dark);
+}
+
+.logo-mark {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 1.45rem;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: baseline;
+  line-height: 1;
+}
+
+.logo-mark .lm-black { color: #1a1a1a; }
+.logo-mark .lm-gray  { color: #999; }
+.logo-mark .lm-n {
+  background: linear-gradient(to right, #999 28%, #1a1a1a 28%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--gray-700);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover { color: var(--black); }
+
+.nav-cta {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--white) !important;
+  background: var(--black);
+  padding: 0.6rem 1.4rem;
+  transition: all 0.3s ease;
+}
+
+.nav-cta:hover { background: var(--gray-900); }
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+/* ——— LANGUAGE TOGGLE ——— */
+.lang-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.lang-toggle button {
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  padding: 0.35rem 0.45rem;
+  color: var(--gray-300);
+  transition: color 0.25s ease;
+  text-transform: uppercase;
+}
+
+.lang-toggle button:hover {
+  color: var(--gray-700);
+}
+
+.lang-toggle button.active {
+  color: var(--black);
+  font-weight: 700;
+}
+
+.lang-sep {
+  color: var(--gray-200);
+  font-size: 0.7rem;
+  user-select: none;
+  pointer-events: none;
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: var(--black);
+  margin: 5px 0;
+  transition: all 0.3s ease;
+}
+
+/* ——— HERO ——— */
+.hero {
+  padding-top: clamp(8rem, 18vw, 13rem);
+  padding-bottom: clamp(5rem, 10vw, 9rem);
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+}
+
+.hero-content { max-width: 720px; }
+
+.hero h1 {
+  margin-bottom: 1.5rem;
+  color: var(--black);
+}
+
+.hero-sub {
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  color: var(--gray-700);
+  font-weight: 400;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.hero-body {
+  font-size: 1rem;
+  color: var(--gray-500);
+  line-height: 1.8;
+  margin-bottom: 2.5rem;
+  max-width: 560px;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+}
+
+/* ——— PROBLEM ——— */
+.problem { background: var(--light); }
+
+.problem-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(3rem, 6vw, 6rem);
+  align-items: start;
+}
+
+.problem h2 {
+  color: var(--black);
+  max-width: 440px;
+}
+
+.problem-text p {
+  font-size: 1.05rem;
+  line-height: 1.85;
+  margin-bottom: 1.2rem;
+}
+
+/* ——— SERVICES OVERVIEW ——— */
+.services-header {
+  text-align: center;
+  margin-bottom: clamp(3.5rem, 6vw, 5rem);
+}
+
+.services-header h2 { color: var(--black); }
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: var(--gray-300);
+  border: 1px solid var(--gray-300);
+  margin-bottom: clamp(4rem, 8vw, 7rem);
+}
+
+.service-card {
+  background: var(--white);
+  padding: clamp(2rem, 4vw, 3rem);
+  transition: background 0.3s ease;
+}
+
+.service-card:hover { background: var(--light); }
+
+.service-number {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--gray-300);
+  margin-bottom: 1.5rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.service-card h3 {
+  color: var(--black);
+  margin-bottom: 1rem;
+}
+
+.service-card p {
+  font-size: 0.95rem;
+  line-height: 1.75;
+}
+
+/* ——— SERVICE DETAIL BLOCKS ——— */
+.service-detail {
+  padding: clamp(3rem, 6vw, 5rem) 0;
+  border-top: 1px solid var(--gray-100);
+}
+
+.service-detail:first-of-type {
+  border-top: none;
+}
+
+.service-detail-inner {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: start;
+}
+
+.service-detail-label {
+  position: sticky;
+  top: 100px;
+}
+
+.service-detail-label .service-number {
+  margin-bottom: 0.75rem;
+}
+
+.service-detail-label h3 {
+  color: var(--black);
+  font-size: 1.4rem;
+  line-height: 1.3;
+}
+
+.service-detail-content p {
+  font-size: 1rem;
+  line-height: 1.85;
+  margin-bottom: 1.2rem;
+}
+
+.service-detail-content h4 {
+  color: var(--black);
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
+}
+
+.tool-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+.tool-tag {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--gray-700);
+  background: var(--light);
+  border: 1px solid var(--gray-200);
+  padding: 0.35rem 0.85rem;
+  letter-spacing: 0.02em;
+}
+
+/* ——— PROCESS ——— */
+.process {
+  background: var(--black);
+  color: var(--white);
+}
+
+.process .label { color: var(--gray-500); }
+
+.process-header { margin-bottom: clamp(3.5rem, 6vw, 5rem); }
+
+.process-header h2 {
+  color: var(--white);
+  max-width: 500px;
+}
+
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(2rem, 4vw, 3rem);
+}
+
+.step {
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255,255,255,0.15);
+}
+
+.step-number {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--gray-500);
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+.step h3 {
+  color: var(--white);
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+}
+
+.step p {
+  color: rgba(255,255,255,0.55);
+  font-size: 0.95rem;
+  line-height: 1.75;
+}
+
+/* ——— OUTCOMES ——— */
+.outcomes { background: var(--light); }
+
+.outcomes-header {
+  margin-bottom: clamp(3rem, 5vw, 4rem);
+}
+
+.outcomes-header h2 { color: var(--black); }
+
+.outcomes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.outcome-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.2rem;
+  padding: 1.8rem 2rem;
+  background: var(--white);
+  border: 1px solid var(--gray-100);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.outcome-item:hover {
+  border-color: var(--gray-300);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+}
+
+.outcome-icon {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  background: var(--black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+}
+
+.outcome-icon svg {
+  width: 16px;
+  height: 16px;
+  stroke: var(--white);
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.outcome-item p {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--dark);
+  font-weight: 400;
+}
+
+/* ——— AUDIENCE ——— */
+.audience-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(3rem, 6vw, 6rem);
+  align-items: start;
+}
+
+.audience-inner h2 {
+  color: var(--black);
+  max-width: 380px;
+}
+
+.audience-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.audience-list li {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--gray-700);
+  padding: 1.15rem 0;
+  border-bottom: 1px solid var(--gray-100);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.audience-list li:first-child {
+  padding-top: 0;
+}
+
+.audience-list li::before {
+  content: '';
+  flex-shrink: 0;
+  width: 6px;
+  height: 6px;
+  background: var(--black);
+  border-radius: 50%;
+}
+
+/* ——— FOUNDER ——— */
+.founder { background: var(--light); }
+
+.founder-inner {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: clamp(3rem, 6vw, 6rem);
+  align-items: start;
+}
+
+.founder-label h2 {
+  color: var(--black);
+  margin-bottom: 0;
+}
+
+.founder-content p {
+  font-size: 1.05rem;
+  line-height: 1.85;
+  margin-bottom: 1.2rem;
+}
+
+.founder-content .founder-signature {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--gray-300);
+}
+
+.founder-content .founder-signature p {
+  font-size: 0.9rem;
+  color: var(--gray-500);
+  font-style: italic;
+  margin-bottom: 0;
+}
+
+/* ——— VALUE ——— */
+.value { background: var(--white); }
+
+.value-inner {
+  max-width: 680px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.value h2 {
+  color: var(--black);
+  margin-bottom: 1.5rem;
+}
+
+.value p {
+  font-size: 1.1rem;
+  line-height: 1.85;
+}
+
+/* ——— CTA ——— */
+.cta-section {
+  background: var(--light);
+  text-align: center;
+}
+
+.cta-inner { max-width: 600px; margin: 0 auto; }
+
+.cta-section h2 {
+  color: var(--black);
+  margin-bottom: 1.2rem;
+}
+
+.cta-section p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  margin-bottom: 2.5rem;
+}
+
+.cta-prep-wrapper {
+  background: var(--black);
+  margin-top: clamp(3rem, 5vw, 5rem);
+  margin-left: calc(-1 * clamp(1.5rem, 5vw, 4rem));
+  margin-right: calc(-1 * clamp(1.5rem, 5vw, 4rem));
+  margin-bottom: calc(-1 * clamp(4rem, 8vw, 8rem));
+  padding: clamp(3.5rem, 6vw, 5.5rem) clamp(1.5rem, 5vw, 4rem);
+}
+
+.cta-prep {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.cta-prep-intro {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.cta-prep-intro h3 {
+  font-size: clamp(1.3rem, 2.2vw, 1.7rem);
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: -0.02em;
+  margin-bottom: 0.8rem;
+}
+
+.cta-prep-intro p {
+  font-size: 1rem;
+  color: var(--gray-500);
+  margin-bottom: 0;
+}
+
+.cta-prep-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+}
+
+.cta-prep-col h4 {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--gray-500);
+  margin-bottom: 1.2rem;
+}
+
+.cta-prep-col ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.cta-prep-col li {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.6;
+  padding-left: 1.2rem;
+  position: relative;
+}
+
+.cta-prep-col li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.25);
+}
+
+.cta-prep-footer {
+  text-align: center;
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.cta-prep-footer p {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--white);
+  margin-bottom: 0;
+}
+
+@media (max-width: 700px) {
+  .cta-prep-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+/* ——— FAQ ——— */
+.faq {
+  padding: clamp(4rem, 8vw, 8rem) 0;
+  background: var(--light);
+}
+
+.faq-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.faq-header h2 {
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--black);
+  margin-bottom: 0.5rem;
+}
+
+.faq-list {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.faq-item:first-child {
+  border-top: 1px solid var(--gray-200);
+}
+
+.faq-question {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 1.5rem 0;
+  font-family: inherit;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--black);
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  line-height: 1.5;
+}
+
+.faq-question::after {
+  content: '+';
+  font-size: 1.4rem;
+  font-weight: 300;
+  color: var(--gray-500);
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.faq-item.open .faq-question::after {
+  content: '−';
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, padding 0.35s ease;
+}
+
+.faq-answer p {
+  padding: 0 0 1.5rem;
+  font-size: 0.95rem;
+  color: var(--gray-700);
+  line-height: 1.8;
+}
+
+/* ——— FOOTER ——— */
+footer {
+  border-top: 1px solid var(--gray-100);
+  padding: 3.5rem 0;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.footer-logo {
+  display: inline-flex;
+  align-items: center;
+}
+
+.footer-logo .logo-mark {
+  font-size: 1.15rem;
+}
+
+.footer-tagline {
+  font-size: 0.8rem;
+  color: var(--gray-500);
+}
+
+.footer-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.footer-links a {
+  font-size: 0.85rem;
+  color: var(--gray-500);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover { color: var(--black); }
+
+/* ——— DIVIDER ——— */
+.section-line {
+  width: 48px;
+  height: 1px;
+  background: var(--gray-300);
+  margin-bottom: 2rem;
+}
+
+/* ——— ANIMATIONS ——— */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+
+/* ——— RESPONSIVE ——— */
+@media (max-width: 900px) {
+  .problem-inner,
+  .audience-inner,
+  .founder-inner {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .services-grid { grid-template-columns: 1fr; }
+
+  .service-detail-inner {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .service-detail-label {
+    position: static;
+  }
+
+  .process-steps { grid-template-columns: 1fr; gap: 2.5rem; }
+}
+
+@media (max-width: 700px) {
+  .nav-links {
+    display: none;
+    position: fixed;
+    top: 72px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--white);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2rem clamp(1.5rem, 5vw, 4rem);
+    gap: 1.8rem;
+  }
+
+  .nav-links.active { display: flex; }
+  .menu-toggle { display: block; }
+
+  .menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(4px, 4px); }
+  .menu-toggle.active span:nth-child(2) { opacity: 0; }
+  .menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(4px, -4px); }
+
+  .hero { min-height: auto; padding-top: 8rem; }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer-links { flex-wrap: wrap; gap: 1.2rem; }
+
+  h1 { font-size: clamp(2.2rem, 8vw, 3rem); }
+
+  .outcomes-grid { grid-template-columns: 1fr; }
+}
+
+/* ═══════════════════ ASSESSMENT (Smart Business Score) ═══════════════════ */
+.assessment-section {
+  padding: 5rem 0 3rem;
+  background: var(--light);
+}
+#sbs-app { display: flex; flex-direction: column; }
+#sbs-app .sbs-wrap { max-width: 680px; margin: 0 auto; padding: 0 1.5rem; }
+
+/* Progress */
+#sbs-app .sbs-progress-bar {
+  position: sticky; top: 64px; left: 0; right: 0;
+  height: 3px; background: var(--gray-200); z-index: 50;
+}
+#sbs-app .sbs-progress-fill {
+  height: 100%; background: var(--black);
+  transition: width 0.5s cubic-bezier(0.4,0,0.2,1); border-radius: 0 2px 2px 0;
+}
+
+/* Welcome */
+#sbs-app .sbs-welcome {
+  display: flex; align-items: center; justify-content: center;
+  text-align: center; padding: 3rem 0;
+}
+#sbs-app .sbs-welcome-inner { max-width: 540px; }
+#sbs-app .sbs-badge {
+  display: inline-block; font-size: 0.7rem; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--gray-500); border: 1px solid var(--gray-200);
+  padding: 0.35rem 1rem; border-radius: 100px; margin-bottom: 2rem;
+}
+#sbs-app .sbs-welcome h1 {
+  font-size: clamp(2rem,5.5vw,3.2rem); font-weight: 700;
+  letter-spacing: -0.03em; line-height: 1.15;
+  margin-bottom: 1.25rem; color: var(--black);
+}
+#sbs-app .sbs-lead {
+  font-size: 1.05rem; color: var(--gray-500); line-height: 1.7;
+  margin-bottom: 2.5rem; max-width: 460px; margin-left: auto; margin-right: auto;
+}
+#sbs-app .sbs-btn {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: var(--black); color: var(--white); border: none;
+  padding: 1rem 2.25rem; font-size: 1rem; font-weight: 600;
+  font-family: 'Inter', sans-serif; border-radius: 8px; cursor: pointer;
+  transition: opacity 0.25s ease, transform 0.25s ease; letter-spacing: -0.01em;
+}
+#sbs-app .sbs-btn:hover { opacity: 0.85; transform: translateY(-1px); }
+#sbs-app .sbs-btn:active { transform: translateY(0); }
+#sbs-app .sbs-btn .arrow { font-size: 1.15rem; transition: transform 0.2s ease; }
+#sbs-app .sbs-btn:hover .arrow { transform: translateX(3px); }
+#sbs-app .sbs-meta { margin-top: 1.25rem; font-size: 0.8rem; color: var(--gray-300); }
+
+/* Question */
+#sbs-app .sbs-question-screen {
+  flex: 1; display: flex; flex-direction: column;
+  justify-content: center; padding: 4.5rem 0 3rem;
+}
+#sbs-app .sbs-question-meta {
+  display: flex; align-items: center; justify-content: space-between; margin-bottom: 2rem;
+}
+#sbs-app .sbs-back-btn {
+  background: none; border: none; font-family: 'Inter', sans-serif;
+  font-size: 0.85rem; font-weight: 500; color: var(--gray-300);
+  cursor: pointer; padding: 0.25rem 0; transition: color 0.2s ease;
+}
+#sbs-app .sbs-back-btn:hover { color: var(--black); }
+#sbs-app .sbs-step {
+  font-size: 0.8rem; font-weight: 500; color: var(--gray-300); letter-spacing: 0.02em;
+}
+#sbs-app .sbs-question-text {
+  font-size: clamp(1.35rem,3vw,1.65rem); font-weight: 700;
+  letter-spacing: -0.025em; line-height: 1.3;
+  margin-bottom: 2rem; color: var(--black);
+}
+
+/* Answer cards */
+#sbs-app .sbs-answers { display: flex; flex-direction: column; gap: 0.75rem; }
+#sbs-app .sbs-card {
+  background: var(--white); border: 1.5px solid var(--gray-200);
+  border-radius: 10px; padding: 1.1rem 1.4rem; text-align: left;
+  font-size: 0.95rem; font-weight: 500; font-family: 'Inter', sans-serif;
+  color: var(--gray-700); cursor: pointer; transition: all 0.2s ease;
+  width: 100%; line-height: 1.5; opacity: 0;
+  animation: sbsCardIn 0.3s ease forwards;
+}
+#sbs-app .sbs-card:nth-child(1) { animation-delay: 0.04s; }
+#sbs-app .sbs-card:nth-child(2) { animation-delay: 0.08s; }
+#sbs-app .sbs-card:nth-child(3) { animation-delay: 0.12s; }
+#sbs-app .sbs-card:nth-child(4) { animation-delay: 0.16s; }
+#sbs-app .sbs-card:hover {
+  border-color: var(--black); transform: translateY(-1px);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+}
+#sbs-app .sbs-card.selected {
+  background: var(--black); color: var(--white);
+  border-color: var(--black); transform: scale(0.985); box-shadow: none;
+}
+
+/* Results */
+#sbs-app .sbs-results { padding: 4rem 0 3rem; }
+#sbs-app .sbs-results-header { text-align: center; margin-bottom: 3rem; padding-top: 1rem; }
+#sbs-app .sbs-profile-badge {
+  display: inline-block; color: var(--white);
+  font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em;
+  text-transform: uppercase; padding: 0.4rem 1.2rem;
+  border-radius: 100px; margin-bottom: 2rem;
+}
+#sbs-app .sbs-ring-wrapper { display: flex; justify-content: center; margin-bottom: 0.5rem; }
+#sbs-app .sbs-ring { width: 130px; height: 130px; }
+#sbs-app .sbs-ring-bg { fill: none; stroke: var(--gray-200); stroke-width: 7; }
+#sbs-app .sbs-ring-fill {
+  fill: none; stroke-width: 7; stroke-linecap: round;
+  transform: rotate(-90deg); transform-origin: center;
+  animation: sbsRingDraw 1.2s cubic-bezier(0.4,0,0.2,1) forwards;
+}
+#sbs-app .sbs-ring-label { font-size: 30px; font-weight: 700; fill: var(--black); }
+#sbs-app .sbs-ring-sub { font-size: 12px; font-weight: 500; fill: var(--gray-300); }
+#sbs-app .sbs-results-desc {
+  font-size: 1.05rem; color: var(--gray-500); line-height: 1.75;
+  margin-bottom: 3rem; text-align: center; max-width: 580px;
+  margin-left: auto; margin-right: auto;
+}
+#sbs-app .sbs-section-label {
+  font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--gray-300); margin-bottom: 1.5rem;
+}
+
+/* Dimension bars */
+#sbs-app .sbs-dimensions { margin-bottom: 3rem; }
+#sbs-app .sbs-dim-row {
+  display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;
+}
+#sbs-app .sbs-dim-label {
+  width: 160px; flex-shrink: 0; font-size: 0.85rem;
+  font-weight: 600; color: var(--gray-700);
+}
+#sbs-app .sbs-dim-track {
+  flex: 1; height: 8px; background: var(--gray-200);
+  border-radius: 100px; overflow: hidden;
+}
+#sbs-app .sbs-dim-fill {
+  height: 100%; border-radius: 100px;
+  animation: sbsBarGrow 0.8s cubic-bezier(0.4,0,0.2,1) forwards;
+}
+#sbs-app .sbs-dim-row:nth-child(1) .sbs-dim-fill { animation-delay: 0.2s; }
+#sbs-app .sbs-dim-row:nth-child(2) .sbs-dim-fill { animation-delay: 0.35s; }
+#sbs-app .sbs-dim-row:nth-child(3) .sbs-dim-fill { animation-delay: 0.5s; }
+#sbs-app .sbs-dim-row:nth-child(4) .sbs-dim-fill { animation-delay: 0.65s; }
+#sbs-app .sbs-dim-score {
+  width: 36px; text-align: right; font-size: 0.85rem;
+  font-weight: 600; color: var(--gray-500); flex-shrink: 0;
+}
+
+/* Recommendation */
+#sbs-app .sbs-rec {
+  background: var(--white); border-radius: 12px;
+  padding: 2rem; margin-bottom: 3.5rem;
+}
+#sbs-app .sbs-rec h3 {
+  font-size: 1rem; font-weight: 700; margin-bottom: 0.75rem; color: var(--black);
+}
+#sbs-app .sbs-rec p {
+  font-size: 0.95rem; color: var(--gray-500); line-height: 1.7;
+}
+
+/* CTA / Form */
+#sbs-app .sbs-cta {
+  text-align: center; border-top: 1px solid var(--gray-200);
+  padding-top: 3rem; margin-bottom: 2rem;
+}
+#sbs-app .sbs-cta h3 {
+  font-size: clamp(1.3rem,3vw,1.6rem); font-weight: 700;
+  letter-spacing: -0.02em; margin-bottom: 0.75rem; color: var(--black);
+}
+#sbs-app .sbs-cta > p {
+  font-size: 0.95rem; color: var(--gray-500);
+  margin-bottom: 2.5rem; max-width: 440px;
+  margin-left: auto; margin-right: auto;
+}
+#sbs-app .sbs-form { max-width: 480px; margin: 0 auto; }
+#sbs-app .sbs-form-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 0.75rem; margin-bottom: 1.25rem;
+}
+#sbs-app .sbs-form-grid input,
+#sbs-app .sbs-form-grid select {
+  width: 100%; padding: 0.85rem 1rem; font-family: 'Inter', sans-serif;
+  font-size: 0.9rem; border: 1.5px solid var(--gray-200);
+  border-radius: 8px; background: var(--white); color: var(--black);
+  outline: none; transition: border-color 0.2s ease;
+}
+#sbs-app .sbs-form-grid input:focus,
+#sbs-app .sbs-form-grid select:focus { border-color: var(--black); }
+#sbs-app .sbs-form-grid input::placeholder { color: var(--gray-300); }
+#sbs-app .sbs-form-grid select {
+  color: var(--gray-300); appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23999' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 1rem center; padding-right: 2.5rem;
+}
+#sbs-app .sbs-form-grid select.has-value { color: var(--black); }
+#sbs-app .sbs-btn-submit { width: 100%; padding: 1rem; font-size: 1rem; margin-bottom: 1rem; }
+#sbs-app .sbs-form-note { font-size: 0.8rem; color: var(--gray-300); }
+
+/* Success */
+#sbs-app .sbs-success { padding: 2rem 0; }
+#sbs-app .sbs-success-icon {
+  width: 56px; height: 56px; border-radius: 50%;
+  background: var(--optimizer); color: var(--white);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.5rem; font-weight: 700; margin: 0 auto 1.25rem;
+  animation: sbsScaleUp 0.4s cubic-bezier(0.34,1.56,0.64,1);
+}
+#sbs-app .sbs-success h3 {
+  font-size: 1.2rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--black);
+}
+#sbs-app .sbs-success p { font-size: 0.95rem; color: var(--gray-500); }
+
+/* Retake */
+#sbs-app .sbs-retake {
+  display: block; margin: 0 auto 3rem; background: none; border: none;
+  font-family: 'Inter', sans-serif; font-size: 0.85rem; font-weight: 500;
+  color: var(--gray-300); cursor: pointer; padding: 0.5rem 0;
+  transition: color 0.2s ease;
+}
+#sbs-app .sbs-retake:hover { color: var(--black); }
+
+/* Fade */
+#sbs-app .sbs-fade-in { animation: sbsFadeIn 0.45s ease forwards; }
+
+/* Keyframes */
+@keyframes sbsFadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes sbsCardIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes sbsRingDraw { from { stroke-dashoffset: 339.3; } }
+@keyframes sbsBarGrow { from { width: 0; } }
+@keyframes sbsScaleUp { from { transform: scale(0); } to { transform: scale(1); } }
+
+/* Assessment responsive */
+@media (max-width: 600px) {
+  #sbs-app .sbs-dim-row { flex-wrap: wrap; gap: 0.4rem; position: relative; padding-right: 2.5rem; }
+  #sbs-app .sbs-dim-label { width: 100%; font-size: 0.8rem; }
+  #sbs-app .sbs-dim-score { width: auto; position: absolute; right: 0; top: 0; }
+  #sbs-app .sbs-form-grid { grid-template-columns: 1fr; }
+  #sbs-app .sbs-question-screen { padding-top: 3.5rem; }
+  #sbs-app .sbs-rec { padding: 1.5rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════ NAV ═══════════════════ -->
+<nav>
+  <div class="container nav-inner">
+    <a href="#" class="logo" aria-label="Yuman"><span class="logo-mark"><span class="lm-black">YUM</span><span class="lm-gray">A</span><span class="lm-n">N</span></span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#services" data-i18n="nav-services">Services</a></li>
+      <li><a href="#process" data-i18n="nav-process">How We Work</a></li>
+      <li><a href="#founder" data-i18n="nav-about">About</a></li>
+      <li><a href="#assessment" data-i18n="nav-diagnostic">Diagnostic</a></li>
+      <li><a href="#faq" data-i18n="nav-faq">FAQ</a></li>
+      <li><a href="#contact" class="nav-cta" data-i18n="nav-cta">Get in Touch</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="lang-toggle" id="langToggle">
+        <button class="active" data-lang="en">EN</button>
+        <span class="lang-sep">/</span>
+        <button data-lang="it">IT</button>
+      </div>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════════════ HERO ═══════════════════ -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <span class="label reveal" data-i18n="hero-label">Consulting &amp; Innovation</span>
+      <h1 class="reveal reveal-delay-1" data-i18n="hero-h1">Human Intelligence.<br>AI Amplified.</h1>
+      <p class="hero-sub reveal reveal-delay-2" data-i18n="hero-sub">Helping businesses innovate, automate, and grow by combining human strategy with AI-powered systems.</p>
+      <p class="hero-body reveal reveal-delay-2" data-i18n="hero-body">Yuman helps companies simplify operations, improve decision making, and build scalable systems that unlock real growth.</p>
+      <div class="hero-actions reveal reveal-delay-3">
+        <a href="https://calendar.app.google/ZMQcVY6Bqao6Brij7" target="_blank" rel="noopener" class="btn btn--primary" data-i18n="hero-cta">Book a Strategy Call</a>
+        <a href="#services" class="btn btn--secondary btn--arrow" data-i18n="hero-cta2">Explore Services </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ PROBLEM ═══════════════════ -->
+<section class="problem" id="problem">
+  <div class="container">
+    <div class="problem-inner">
+      <div class="reveal">
+        <span class="label" data-i18n="problem-label">The Challenge</span>
+        <h2 data-i18n="problem-h2">Most businesses want to innovate. Few know where to begin.</h2>
+      </div>
+      <div class="problem-text reveal reveal-delay-1">
+        <p data-i18n="problem-p1">Many small companies are overwhelmed by technology, fragmented tools, and unclear strategies. They want to grow, automate processes, and improve efficiency — but the path forward is often unclear.</p>
+        <p data-i18n="problem-p2">Yuman helps companies cut through the noise and design practical systems that work.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ SERVICES ═══════════════════ -->
+<section id="services">
+  <div class="container">
+
+    <!-- Services Overview Grid -->
+    <div class="services-header reveal">
+      <span class="label" data-i18n="services-label">What We Do</span>
+      <h2 data-i18n="services-h2">How Yuman Helps<br>Businesses Grow</h2>
+    </div>
+    <div class="services-grid reveal reveal-delay-1">
+      <div class="service-card">
+        <span class="service-number">01</span>
+        <h3 data-i18n="s1-title">AI Automation</h3>
+        <p data-i18n="s1-desc">Design practical AI-powered workflows that simplify operations and reduce repetitive work.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-number">02</span>
+        <h3 data-i18n="s2-title">Business Strategy &amp; Innovation</h3>
+        <p data-i18n="s2-desc">Help companies rethink how they operate, identify opportunities, and design smarter systems.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-number">03</span>
+        <h3 data-i18n="s3-title">Market &amp; Customer Insights</h3>
+        <p data-i18n="s3-desc">Define ideal customers, analyze competitors, and uncover real growth opportunities.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-number">04</span>
+        <h3 data-i18n="s4-title">Growth &amp; Sales Systems</h3>
+        <p data-i18n="s4-desc">Build structured approaches to sales, marketing, and scalable business expansion.</p>
+      </div>
+    </div>
+
+    <!-- ——— Service Detail: AI Automation ——— -->
+    <div class="service-detail reveal">
+      <div class="service-detail-inner">
+        <div class="service-detail-label">
+          <span class="service-number">01</span>
+          <h3 data-i18n="sd1-title">AI Automation</h3>
+        </div>
+        <div class="service-detail-content">
+          <p data-i18n="sd1-p1">Most teams spend hours on tasks that could be automated in minutes. We identify bottlenecks in your operations — from lead management and data entry to reporting and internal communication — and design AI-powered workflows that handle the repetitive work for you.</p>
+          <p data-i18n="sd1-p2">We connect the tools you already use into seamless automations, and introduce new ones where they add real value. The goal is never automation for its own sake — it's freeing your team to focus on the work that actually drives growth.</p>
+
+          <h4 data-i18n="sd-looks-label">What this looks like</h4>
+          <p data-i18n="sd1-looks">Automated lead capture and CRM enrichment. AI-assisted email sequences and follow-ups. Internal reporting dashboards that update themselves. Workflow orchestration that connects your sales, operations, and marketing tools into one system.</p>
+
+          <div class="tool-tags">
+            <span class="tool-tag">Make.com</span>
+            <span class="tool-tag">Zapier</span>
+            <span class="tool-tag">n8n</span>
+            <span class="tool-tag">ChatGPT</span>
+            <span class="tool-tag">Claude</span>
+            <span class="tool-tag">Notion</span>
+            <span class="tool-tag">Airtable</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ——— Service Detail: Business Strategy ——— -->
+    <div class="service-detail reveal">
+      <div class="service-detail-inner">
+        <div class="service-detail-label">
+          <span class="service-number">02</span>
+          <h3 data-i18n="sd2-title">Business Strategy &amp; Innovation</h3>
+        </div>
+        <div class="service-detail-content">
+          <p data-i18n="sd2-p1">Growth doesn't come from doing more — it comes from doing the right things. We work with founders and leadership teams to step back, reassess how the business operates, and identify where the real opportunities are.</p>
+          <p data-i18n="sd2-p2">This means looking at your business model, value proposition, internal processes, and competitive positioning with fresh eyes. We help you build a clear roadmap that connects your vision to concrete, executable steps — from product-market fit to go-to-market strategy.</p>
+
+          <h4 data-i18n="sd-looks-label">What this looks like</h4>
+          <p data-i18n="sd2-looks">Business model analysis and optimization. GTM strategy and launch planning. Operational audits to remove inefficiencies. Innovation workshops to explore new markets, products, or revenue streams. Strategic roadmaps with milestones and accountability.</p>
+
+          <div class="tool-tags">
+            <span class="tool-tag">Notion</span>
+            <span class="tool-tag">Miro</span>
+            <span class="tool-tag">Google Workspace</span>
+            <span class="tool-tag">Figma</span>
+            <span class="tool-tag">Loom</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ——— Service Detail: Market & Customer Insights ——— -->
+    <div class="service-detail reveal">
+      <div class="service-detail-inner">
+        <div class="service-detail-label">
+          <span class="service-number">03</span>
+          <h3 data-i18n="sd3-title">Market &amp; Customer Insights</h3>
+        </div>
+        <div class="service-detail-content">
+          <p data-i18n="sd3-p1">You can't grow what you don't understand. We help companies define and refine their Ideal Customer Profile (ICP) and buyer personas — not with guesswork, but with data. We analyze your existing customers, study the competition, and identify the gaps in the market that represent real opportunities.</p>
+          <p data-i18n="sd3-p2">From there, we build targeted prospect lists, map out the competitive landscape, and design positioning that resonates with the right audience. This is the foundation that every growth strategy should start with — and the step most companies skip.</p>
+
+          <h4 data-i18n="sd-looks-label">What this looks like</h4>
+          <p data-i18n="sd3-looks">ICP and persona definition workshops backed by real data. Competitor analysis and market gap identification. Prospect list building with verified, enriched contacts. Audience segmentation for outbound and inbound strategies. Market research to validate new ideas before you invest.</p>
+
+          <div class="tool-tags">
+            <span class="tool-tag">Apollo</span>
+            <span class="tool-tag">Clay</span>
+            <span class="tool-tag">Semrush</span>
+            <span class="tool-tag">SparkToro</span>
+            <span class="tool-tag">HubSpot</span>
+            <span class="tool-tag">LinkedIn Sales Navigator</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ——— Service Detail: Growth & Sales Systems ——— -->
+    <div class="service-detail reveal">
+      <div class="service-detail-inner">
+        <div class="service-detail-label">
+          <span class="service-number">04</span>
+          <h3 data-i18n="sd4-title">Growth &amp; Sales Systems</h3>
+        </div>
+        <div class="service-detail-content">
+          <p data-i18n="sd4-p1">Having a great product isn't enough — you need a system that consistently generates leads, nurtures prospects, and converts them into customers. We help companies build that system from scratch or fix what isn't working.</p>
+          <p data-i18n="sd4-p2">This includes selecting the right channels for your audience — whether that's LinkedIn for B2B outreach, Reddit and communities for niche engagement, or Meta and paid media for scale. We also design editorial strategies and content plans so your brand stays visible and relevant, with a consistent voice across every platform.</p>
+
+          <h4 data-i18n="sd-looks-label">What this looks like</h4>
+          <p data-i18n="sd4-looks">Sales pipeline design and CRM configuration. Outbound prospecting systems with automated enrichment and sequencing. Channel strategy — choosing between LinkedIn, email, Reddit, Meta, or organic based on your audience. Editorial calendars and content strategy for consistent brand presence. Lead scoring models and conversion optimization.</p>
+
+          <div class="tool-tags">
+            <span class="tool-tag">HubSpot</span>
+            <span class="tool-tag">Apollo</span>
+            <span class="tool-tag">PhantomBuster</span>
+            <span class="tool-tag">Clay</span>
+            <span class="tool-tag">LinkedIn</span>
+            <span class="tool-tag">Meta Ads</span>
+            <span class="tool-tag">Notion</span>
+            <span class="tool-tag">Lemlist</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════ PROCESS ═══════════════════ -->
+<section class="process" id="process">
+  <div class="container">
+    <div class="process-header reveal">
+      <span class="label" data-i18n="process-label">How We Work</span>
+      <h2 data-i18n="process-h2">A Practical Approach to Innovation</h2>
+    </div>
+    <div class="process-steps">
+      <div class="step reveal">
+        <span class="step-number" data-i18n="step1-num">Step 01</span>
+        <h3 data-i18n="step1-title">Understand</h3>
+        <p data-i18n="step1-desc">We analyze your business, workflows, customers, and growth challenges to build a clear picture of where you are and where you want to go.</p>
+      </div>
+      <div class="step reveal reveal-delay-1">
+        <span class="step-number" data-i18n="step2-num">Step 02</span>
+        <h3 data-i18n="step2-title">Design</h3>
+        <p data-i18n="step2-desc">We build the strategy, systems, and automation architecture that support your goals — practical plans grounded in your reality.</p>
+      </div>
+      <div class="step reveal reveal-delay-2">
+        <span class="step-number" data-i18n="step3-num">Step 03</span>
+        <h3 data-i18n="step3-title">Implement</h3>
+        <p data-i18n="step3-desc">We help implement tools, workflows, and processes that make your business more efficient and scalable — with hands-on support throughout.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ OUTCOMES ═══════════════════ -->
+<section class="outcomes" id="outcomes">
+  <div class="container">
+    <div class="outcomes-header reveal">
+      <span class="label" data-i18n="outcomes-label">Results</span>
+      <h2 data-i18n="outcomes-h2">What We Help Teams Achieve</h2>
+    </div>
+    <div class="outcomes-grid">
+      <div class="outcome-item reveal">
+        <div class="outcome-icon">
+          <svg viewBox="0 0 24 24"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg>
+        </div>
+        <p data-i18n="outcome-1">Launching a SaaS product into new markets with a structured GTM strategy</p>
+      </div>
+      <div class="outcome-item reveal reveal-delay-1">
+        <div class="outcome-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+        </div>
+        <p data-i18n="outcome-2">Automating internal operations with AI workflows that save hours every week</p>
+      </div>
+      <div class="outcome-item reveal reveal-delay-1">
+        <div class="outcome-icon">
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+        </div>
+        <p data-i18n="outcome-3">Building the GTM roadmap and sales playbook for early-stage startups</p>
+      </div>
+      <div class="outcome-item reveal reveal-delay-2">
+        <div class="outcome-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+        </div>
+        <p data-i18n="outcome-4">Defining product positioning, narrative, and brand voice for new ventures</p>
+      </div>
+      <div class="outcome-item reveal reveal-delay-2">
+        <div class="outcome-icon">
+          <svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+        </div>
+        <p data-i18n="outcome-5">Designing scalable growth systems with repeatable sales and marketing processes</p>
+      </div>
+      <div class="outcome-item reveal reveal-delay-3">
+        <div class="outcome-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+        </div>
+        <p data-i18n="outcome-6">Creating editorial strategies and content plans that drive consistent brand visibility</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ AUDIENCE ═══════════════════ -->
+<section class="audience" id="audience">
+  <div class="container">
+    <div class="audience-inner">
+      <div class="reveal">
+        <span class="label" data-i18n="audience-label">Who We Work With</span>
+        <h2 data-i18n="audience-h2">Yuman Works Best For</h2>
+      </div>
+      <ul class="audience-list reveal reveal-delay-1">
+        <li data-i18n="aud-1">Early-stage startups looking for structure and direction</li>
+        <li data-i18n="aud-2">Founder-led teams building their first scalable systems</li>
+        <li data-i18n="aud-3">SaaS and AI companies ready to accelerate growth</li>
+        <li data-i18n="aud-4">Startups expanding into new markets or verticals</li>
+        <li data-i18n="aud-5">Companies looking to simplify operations with AI</li>
+        <li data-i18n="aud-6">Teams that need a strategic partner, not just advice</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ FOUNDER ═══════════════════ -->
+<section class="founder" id="founder">
+  <div class="container">
+    <div class="founder-inner">
+      <div class="founder-label reveal">
+        <span class="label" data-i18n="founder-label-text">The Story</span>
+        <h2 data-i18n="founder-h2">About Yuman</h2>
+      </div>
+      <div class="founder-content reveal reveal-delay-1">
+        <p data-i18n="founder-p1">Yuman was created to help startups connect strategy, operations, and growth into one coherent system.</p>
+        <p data-i18n="founder-p2">With experience in sales, GTM strategy, and startup growth, Yuman focuses on practical execution — building systems that actually help teams scale. Not frameworks for the sake of frameworks. Not tools for the sake of tools. Just clear thinking, smart systems, and the kind of hands-on support that moves the needle.</p>
+        <div class="founder-signature">
+          <p data-i18n="founder-bio">I have spent over 10 years in the SaaS and technology industry, working with both global tech companies and early-stage startups. Throughout my career I've led sales and account management teams, built business development functions, and helped companies design scalable growth strategies.</p>
+          <p data-i18n="founder-bio-2">Today my work focuses on helping businesses combine strategy, AI tools, and operational systems to become more efficient and grow with clarity. I'm particularly interested in how technology can amplify human decision making while keeping people at the center.</p>
+          <p data-i18n="founder-bio-3">My approach is grounded in strong ethics and influenced by Stoic philosophy, valuing discipline, clarity, and long-term thinking when building sustainable businesses.</p>
+          <p data-i18n="founder-bio-4">If any of this resonates with you, feel free to reach out. I'm always curious to learn about what others are building and happy to have a conversation anytime.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ VALUE ═══════════════════ -->
+<section class="value" id="value">
+  <div class="container">
+    <div class="value-inner reveal">
+      <span class="label" data-i18n="value-label">Our Philosophy</span>
+      <div class="section-line" style="margin: 0 auto 2rem;"></div>
+      <h2 data-i18n="value-h2">Technology should empower people.</h2>
+      <p data-i18n="value-p">AI is powerful, but its real value appears when combined with human insight and strategic thinking. Yuman focuses on creating systems where technology supports better decisions, stronger teams, and sustainable growth.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ ASSESSMENT ═══════════════════ -->
+<section class="assessment-section" id="assessment">
+  <div id="sbs-app"></div>
+</section>
+
+<!-- ═══════════════════ CTA ═══════════════════ -->
+<section class="cta-section" id="contact">
+  <div class="container">
+    <div class="cta-inner reveal">
+      <span class="label" data-i18n="cta-label">Start Here</span>
+      <h2 data-i18n="cta-h2">Ready to Build a Smarter Business?</h2>
+      <p data-i18n="cta-p">Whether you want to introduce AI, improve operations, or unlock new growth opportunities, Yuman helps you design the path forward.</p>
+      <a href="https://calendar.app.google/ZMQcVY6Bqao6Brij7" target="_blank" rel="noopener" class="btn btn--primary btn--arrow" data-i18n="cta-btn">Book a Strategy Call </a>
+    </div>
+
+    <div class="cta-prep-wrapper">
+    <div class="cta-prep reveal">
+      <div class="cta-prep-intro">
+        <h3 data-i18n="prep-h3">How can I prepare for our first strategy call?</h3>
+        <p data-i18n="prep-intro">To make the session as useful as possible, it helps to come prepared with a few key insights about your business.</p>
+      </div>
+
+      <div class="cta-prep-grid">
+        <div class="cta-prep-col">
+          <h4 data-i18n="prep-before-label">Helpful things to think about beforehand</h4>
+          <ul>
+            <li data-i18n="prep-b1">Your product or service and the problem it solves</li>
+            <li data-i18n="prep-b2">Your current target customers or market</li>
+            <li data-i18n="prep-b3">How you currently acquire customers (if at all)</li>
+            <li data-i18n="prep-b4">The main challenges you're facing with growth or operations</li>
+            <li data-i18n="prep-b5">Tools or systems you already use (CRM, automation, marketing tools, etc.)</li>
+            <li data-i18n="prep-b6">What success would look like for you in the next 6–12 months</li>
+          </ul>
+        </div>
+        <div class="cta-prep-col">
+          <h4 data-i18n="prep-during-label">During the call we'll typically discuss</h4>
+          <ul>
+            <li data-i18n="prep-d1">Your current business model and positioning</li>
+            <li data-i18n="prep-d2">Your ideal customer profile and buyer personas</li>
+            <li data-i18n="prep-d3">Possible growth channels and acquisition strategies</li>
+            <li data-i18n="prep-d4">Operational bottlenecks or inefficiencies</li>
+            <li data-i18n="prep-d5">Opportunities to introduce automation or smarter systems</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cta-prep-footer">
+        <p data-i18n="prep-goal">The goal of the call is to identify the highest-leverage opportunities for your business and outline the next steps.</p>
+      </div>
+    </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ FAQ ═══════════════════ -->
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="faq-header reveal">
+      <span class="label" data-i18n="faq-label">Common Questions</span>
+      <div class="section-line" style="margin: 0 auto 2rem;"></div>
+      <h2 data-i18n="faq-h2">Frequently Asked Questions</h2>
+    </div>
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <button class="faq-question" data-i18n="faq-q1">How quickly can we launch the first campaign or growth experiment?</button>
+        <div class="faq-answer"><p data-i18n="faq-a1">Usually within 1–2 weeks after the initial strategy session. The exact timing depends on ICP clarity, list building, and campaign setup.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" data-i18n="faq-q2">What does the first strategy session look like?</button>
+        <div class="faq-answer"><p data-i18n="faq-a2">A focused working session where we analyze your product, market, and current growth efforts. The goal is to identify the highest-leverage opportunities and define the first actions.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" data-i18n="faq-q3">Do you help define our Ideal Customer Profile and buyer personas?</button>
+        <div class="faq-answer"><p data-i18n="faq-a3">Yes. We refine your ICP by analyzing your product, market signals, and existing customers. This helps focus messaging, targeting, and channel selection.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" data-i18n="faq-q4">How do you identify the right acquisition channels for our business?</button>
+        <div class="faq-answer"><p data-i18n="faq-a4">Channel selection depends on your audience behavior and product type. We test and prioritize platforms such as LinkedIn, email, content, Reddit, or paid channels.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" data-i18n="faq-q5">Do you help with lead generation and building targeted prospect lists?</button>
+        <div class="faq-answer"><p data-i18n="faq-a5">Yes. We design structured list-building processes based on your ICP and personas. This includes sourcing prospects, qualifying them, and preparing them for outreach.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" data-i18n="faq-q6">Can you help us design outbound campaigns (LinkedIn, email, etc.)?</button>
+        <div class="faq-answer"><p data-i18n="faq-a6">Yes. We design the campaign structure, messaging, and outreach sequences. The goal is to create conversations rather than sending generic sales messages.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" data-i18n="faq-q7">Do you also help with content and editorial strategy for founders?</button>
+        <div class="faq-answer"><p data-i18n="faq-a7">Yes. We can design a content strategy aligned with your positioning and audience. This includes themes, formats, and editorial planning for consistent publishing.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" data-i18n="faq-q8">Do you only advise or do you also help implement the systems?</button>
+        <div class="faq-answer"><p data-i18n="faq-a8">Both. I help design the strategy and also support the implementation of workflows and campaigns. The goal is to turn ideas into operational systems your team can run.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" data-i18n="faq-q9">Do we need to purchase specific tools or software to work together?</button>
+        <div class="faq-answer"><p data-i18n="faq-a9">Sometimes, but we always try to work with the tools you already use first. If new tools are recommended, they are chosen based on simplicity and real impact.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ FOOTER ═══════════════════ -->
+<footer>
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <span class="footer-logo"><span class="logo-mark"><span class="lm-black">YUM</span><span class="lm-gray">A</span><span class="lm-n">N</span></span></span>
+      <span class="footer-tagline" data-i18n="footer-tagline">Human intelligence, amplified by AI.</span>
+    </div>
+    <ul class="footer-links">
+      <li><a href="#founder" data-i18n="footer-about">About</a></li>
+      <li><a href="#services" data-i18n="footer-services">Services</a></li>
+      <li><a href="#" data-i18n="footer-insights">Insights</a></li>
+      <li><a href="#contact" data-i18n="footer-contact">Contact</a></li>
+      <li><a href="https://www.linkedin.com/in/francescabruno-gtm-ai/" target="_blank" rel="noopener">LinkedIn</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script>
+// ═══════════════════ TRANSLATIONS ═══════════════════
+const T = {
+  en: {
+    // Meta
+    'meta-title': 'Yuman — Human Intelligence. AI Amplified.',
+    'meta-desc': 'Yuman helps businesses innovate, automate, and grow by combining human strategy with AI-powered systems.',
+    // Nav
+    'nav-services': 'Services',
+    'nav-process': 'How We Work',
+    'nav-about': 'About',
+    'nav-faq': 'FAQ',
+    'nav-cta': 'Get in Touch',
+    // Hero
+    'hero-label': 'Consulting & Innovation',
+    'hero-h1': 'Human Intelligence.<br>AI Amplified.',
+    'hero-sub': 'Helping businesses innovate, automate, and grow by combining human strategy with AI-powered systems.',
+    'hero-body': 'Yuman helps companies simplify operations, improve decision making, and build scalable systems that unlock real growth.',
+    'hero-cta': 'Book a Strategy Call',
+    'hero-cta2': 'Explore Services ',
+    // Problem
+    'problem-label': 'The Challenge',
+    'problem-h2': 'Most businesses want to innovate. Few know where to begin.',
+    'problem-p1': 'Many small companies are overwhelmed by technology, fragmented tools, and unclear strategies. They want to grow, automate processes, and improve efficiency — but the path forward is often unclear.',
+    'problem-p2': 'Yuman helps companies cut through the noise and design practical systems that work.',
+    // Services header
+    'services-label': 'What We Do',
+    'services-h2': 'How Yuman Helps<br>Businesses Grow',
+    // Service cards
+    's1-title': 'AI Automation',
+    's1-desc': 'Design practical AI-powered workflows that simplify operations and reduce repetitive work.',
+    's2-title': 'Business Strategy & Innovation',
+    's2-desc': 'Help companies rethink how they operate, identify opportunities, and design smarter systems.',
+    's3-title': 'Market & Customer Insights',
+    's3-desc': 'Define ideal customers, analyze competitors, and uncover real growth opportunities.',
+    's4-title': 'Growth & Sales Systems',
+    's4-desc': 'Build structured approaches to sales, marketing, and scalable business expansion.',
+    // Service details
+    'sd1-title': 'AI Automation',
+    'sd1-p1': 'Most teams spend hours on tasks that could be automated in minutes. We identify bottlenecks in your operations — from lead management and data entry to reporting and internal communication — and design AI-powered workflows that handle the repetitive work for you.',
+    'sd1-p2': 'We connect the tools you already use into seamless automations, and introduce new ones where they add real value. The goal is never automation for its own sake — it\'s freeing your team to focus on the work that actually drives growth.',
+    'sd-looks-label': 'What this looks like',
+    'sd1-looks': 'Automated lead capture and CRM enrichment. AI-assisted email sequences and follow-ups. Internal reporting dashboards that update themselves. Workflow orchestration that connects your sales, operations, and marketing tools into one system.',
+    'sd2-title': 'Business Strategy & Innovation',
+    'sd2-p1': 'Growth doesn\'t come from doing more — it comes from doing the right things. We work with founders and leadership teams to step back, reassess how the business operates, and identify where the real opportunities are.',
+    'sd2-p2': 'This means looking at your business model, value proposition, internal processes, and competitive positioning with fresh eyes. We help you build a clear roadmap that connects your vision to concrete, executable steps — from product-market fit to go-to-market strategy.',
+    'sd2-looks': 'Business model analysis and optimization. GTM strategy and launch planning. Operational audits to remove inefficiencies. Innovation workshops to explore new markets, products, or revenue streams. Strategic roadmaps with milestones and accountability.',
+    'sd3-title': 'Market & Customer Insights',
+    'sd3-p1': 'You can\'t grow what you don\'t understand. We help companies define and refine their Ideal Customer Profile (ICP) and buyer personas — not with guesswork, but with data. We analyze your existing customers, study the competition, and identify the gaps in the market that represent real opportunities.',
+    'sd3-p2': 'From there, we build targeted prospect lists, map out the competitive landscape, and design positioning that resonates with the right audience. This is the foundation that every growth strategy should start with — and the step most companies skip.',
+    'sd3-looks': 'ICP and persona definition workshops backed by real data. Competitor analysis and market gap identification. Prospect list building with verified, enriched contacts. Audience segmentation for outbound and inbound strategies. Market research to validate new ideas before you invest.',
+    'sd4-title': 'Growth & Sales Systems',
+    'sd4-p1': 'Having a great product isn\'t enough — you need a system that consistently generates leads, nurtures prospects, and converts them into customers. We help companies build that system from scratch or fix what isn\'t working.',
+    'sd4-p2': 'This includes selecting the right channels for your audience — whether that\'s LinkedIn for B2B outreach, Reddit and communities for niche engagement, or Meta and paid media for scale. We also design editorial strategies and content plans so your brand stays visible and relevant, with a consistent voice across every platform.',
+    'sd4-looks': 'Sales pipeline design and CRM configuration. Outbound prospecting systems with automated enrichment and sequencing. Channel strategy — choosing between LinkedIn, email, Reddit, Meta, or organic based on your audience. Editorial calendars and content strategy for consistent brand presence. Lead scoring models and conversion optimization.',
+    // Process
+    'process-label': 'How We Work',
+    'process-h2': 'A Practical Approach to Innovation',
+    'step1-num': 'Step 01',
+    'step1-title': 'Understand',
+    'step1-desc': 'We analyze your business, workflows, customers, and growth challenges to build a clear picture of where you are and where you want to go.',
+    'step2-num': 'Step 02',
+    'step2-title': 'Design',
+    'step2-desc': 'We build the strategy, systems, and automation architecture that support your goals — practical plans grounded in your reality.',
+    'step3-num': 'Step 03',
+    'step3-title': 'Implement',
+    'step3-desc': 'We help implement tools, workflows, and processes that make your business more efficient and scalable — with hands-on support throughout.',
+    // Outcomes
+    'outcomes-label': 'Results',
+    'outcomes-h2': 'What We Help Teams Achieve',
+    'outcome-1': 'Launching a SaaS product into new markets with a structured GTM strategy',
+    'outcome-2': 'Automating internal operations with AI workflows that save hours every week',
+    'outcome-3': 'Building the GTM roadmap and sales playbook for early-stage startups',
+    'outcome-4': 'Defining product positioning, narrative, and brand voice for new ventures',
+    'outcome-5': 'Designing scalable growth systems with repeatable sales and marketing processes',
+    'outcome-6': 'Creating editorial strategies and content plans that drive consistent brand visibility',
+    // Audience
+    'audience-label': 'Who We Work With',
+    'audience-h2': 'Yuman Works Best For',
+    'aud-1': 'Early-stage startups looking for structure and direction',
+    'aud-2': 'Founder-led teams building their first scalable systems',
+    'aud-3': 'SaaS and AI companies ready to accelerate growth',
+    'aud-4': 'Startups expanding into new markets or verticals',
+    'aud-5': 'Companies looking to simplify operations with AI',
+    'aud-6': 'Teams that need a strategic partner, not just advice',
+    // Founder
+    'founder-label-text': 'The Story',
+    'founder-h2': 'About Yuman',
+    'founder-p1': 'Yuman was created to help startups connect strategy, operations, and growth into one coherent system.',
+    'founder-p2': 'With experience in sales, GTM strategy, and startup growth, Yuman focuses on practical execution — building systems that actually help teams scale. Not frameworks for the sake of frameworks. Not tools for the sake of tools. Just clear thinking, smart systems, and the kind of hands-on support that moves the needle.',
+    'founder-bio': 'I have spent over 10 years in the SaaS and technology industry, working with both global tech companies and early-stage startups. Throughout my career I\'ve led sales and account management teams, built business development functions, and helped companies design scalable growth strategies.',
+    'founder-bio-2': 'Today my work focuses on helping businesses combine strategy, AI tools, and operational systems to become more efficient and grow with clarity. I\'m particularly interested in how technology can amplify human decision making while keeping people at the center.',
+    'founder-bio-3': 'My approach is grounded in strong ethics and influenced by Stoic philosophy, valuing discipline, clarity, and long-term thinking when building sustainable businesses.',
+    'founder-bio-4': 'If any of this resonates with you, feel free to reach out. I\'m always curious to learn about what others are building and happy to have a conversation anytime.',
+    // Value
+    'value-label': 'Our Philosophy',
+    'value-h2': 'Technology should empower people.',
+    'value-p': 'AI is powerful, but its real value appears when combined with human insight and strategic thinking. Yuman focuses on creating systems where technology supports better decisions, stronger teams, and sustainable growth.',
+    // CTA
+    'cta-label': 'Start Here',
+    'cta-h2': 'Ready to Build a Smarter Business?',
+    'cta-p': 'Whether you want to introduce AI, improve operations, or unlock new growth opportunities, Yuman helps you design the path forward.',
+    'cta-btn': 'Book a Strategy Call ',
+    // Call Preparation
+    'prep-h3': 'How can I prepare for our first strategy call?',
+    'prep-intro': 'To make the session as useful as possible, it helps to come prepared with a few key insights about your business.',
+    'prep-before-label': 'Helpful things to think about beforehand',
+    'prep-b1': 'Your product or service and the problem it solves',
+    'prep-b2': 'Your current target customers or market',
+    'prep-b3': 'How you currently acquire customers (if at all)',
+    'prep-b4': 'The main challenges you\'re facing with growth or operations',
+    'prep-b5': 'Tools or systems you already use (CRM, automation, marketing tools, etc.)',
+    'prep-b6': 'What success would look like for you in the next 6\u201312 months',
+    'prep-during-label': 'During the call we\'ll typically discuss',
+    'prep-d1': 'Your current business model and positioning',
+    'prep-d2': 'Your ideal customer profile and buyer personas',
+    'prep-d3': 'Possible growth channels and acquisition strategies',
+    'prep-d4': 'Operational bottlenecks or inefficiencies',
+    'prep-d5': 'Opportunities to introduce automation or smarter systems',
+    'prep-goal': 'The goal of the call is to identify the highest-leverage opportunities for your business and outline the next steps.',
+    // FAQ
+    'faq-label': 'Common Questions',
+    'faq-h2': 'Frequently Asked Questions',
+    'faq-q1': 'How quickly can we launch the first campaign or growth experiment?',
+    'faq-a1': 'Usually within 1\u20132 weeks after the initial strategy session. The exact timing depends on ICP clarity, list building, and campaign setup.',
+    'faq-q2': 'What does the first strategy session look like?',
+    'faq-a2': 'A focused working session where we analyze your product, market, and current growth efforts. The goal is to identify the highest-leverage opportunities and define the first actions.',
+    'faq-q3': 'Do you help define our Ideal Customer Profile and buyer personas?',
+    'faq-a3': 'Yes. We refine your ICP by analyzing your product, market signals, and existing customers. This helps focus messaging, targeting, and channel selection.',
+    'faq-q4': 'How do you identify the right acquisition channels for our business?',
+    'faq-a4': 'Channel selection depends on your audience behavior and product type. We test and prioritize platforms such as LinkedIn, email, content, Reddit, or paid channels.',
+    'faq-q5': 'Do you help with lead generation and building targeted prospect lists?',
+    'faq-a5': 'Yes. We design structured list-building processes based on your ICP and personas. This includes sourcing prospects, qualifying them, and preparing them for outreach.',
+    'faq-q6': 'Can you help us design outbound campaigns (LinkedIn, email, etc.)?',
+    'faq-a6': 'Yes. We design the campaign structure, messaging, and outreach sequences. The goal is to create conversations rather than sending generic sales messages.',
+    'faq-q7': 'Do you also help with content and editorial strategy for founders?',
+    'faq-a7': 'Yes. We can design a content strategy aligned with your positioning and audience. This includes themes, formats, and editorial planning for consistent publishing.',
+    'faq-q8': 'Do you only advise or do you also help implement the systems?',
+    'faq-a8': 'Both. I help design the strategy and also support the implementation of workflows and campaigns. The goal is to turn ideas into operational systems your team can run.',
+    'faq-q9': 'Do we need to purchase specific tools or software to work together?',
+    'faq-a9': 'Sometimes, but we always try to work with the tools you already use first. If new tools are recommended, they are chosen based on simplicity and real impact.',
+    // Nav – Diagnostic
+    'nav-diagnostic': 'Diagnostic',
+    // Assessment (Smart Business Score)
+    'sbs-badge': 'Free Diagnostic',
+    'sbs-h1': 'How Smart Is<br>Your Business?',
+    'sbs-lead': '8 quick questions to discover how ready your company is to grow with smarter systems, better operations, and the right technology.',
+    'sbs-start': 'Start the Diagnostic',
+    'sbs-meta': 'Takes about 2 minutes &middot; Completely free',
+    'sbs-back': '&larr; Back',
+    'sbs-question': 'Question',
+    'sbs-of': 'of',
+    // Questions
+    'sbs-q1': "How would you describe your company's growth strategy?",
+    'sbs-q1a1': "We're figuring things out as we go — no formal plan yet",
+    'sbs-q1a2': "We have a general direction, but nothing documented",
+    'sbs-q1a3': "We have a strategy we review from time to time",
+    'sbs-q1a4': "Clear goals, a documented plan, and regular reviews",
+    'sbs-q2': "How do your daily operations actually run?",
+    'sbs-q2a1': "Mostly in people's heads — we react to things as they come",
+    'sbs-q2a2': "We have some processes, but they're inconsistent",
+    'sbs-q2a3': "Most workflows are documented and generally followed",
+    'sbs-q2a4': "Operations run on clear systems with minimal firefighting",
+    'sbs-q3': "What does your current tool stack look like?",
+    'sbs-q3a1': "Spreadsheets, email, and a lot of improvisation",
+    'sbs-q3a2': "We have tools, but they don't really talk to each other",
+    'sbs-q3a3': "Our key tools are connected and support real workflows",
+    'sbs-q3a4': "Fully integrated systems that we regularly evaluate and improve",
+    'sbs-q4': "How do you currently find and win new customers?",
+    'sbs-q4a1': "Mostly through word of mouth and personal network",
+    'sbs-q4a2': "We do some marketing, but it's not systematic",
+    'sbs-q4a3': "We have defined channels and track basic metrics",
+    'sbs-q4a4': "Multi-channel strategy with clear data on what works",
+    'sbs-q5': "Where does your team stand with AI?",
+    'sbs-q5a1': "We've heard about it but haven't really explored it",
+    'sbs-q5a2': "A few people experiment with tools like ChatGPT",
+    'sbs-q5a3': "We use AI regularly for specific tasks and workflows",
+    'sbs-q5a4': "AI is part of how we work and make decisions",
+    'sbs-q6': "How does your company make important decisions?",
+    'sbs-q6a1': "Mostly gut feeling and experience",
+    'sbs-q6a2': "We look at data sometimes, but there's no real process",
+    'sbs-q6a3': "We track key metrics and use them to guide decisions",
+    'sbs-q6a4': "Data drives most of our strategic and operational choices",
+    'sbs-q7': "How does work flow through your team?",
+    'sbs-q7a1': "I'm involved in almost everything — hard to step away",
+    'sbs-q7a2': "People have roles, but I still make most decisions",
+    'sbs-q7a3': "Teams own their areas with clear responsibilities",
+    'sbs-q7a4': "Work runs independently — I focus on strategy and growth",
+    'sbs-q8': "If your business doubled in size tomorrow, what would happen?",
+    'sbs-q8a1': "Honestly? It would be chaos",
+    'sbs-q8a2': "We'd manage, but with serious growing pains",
+    'sbs-q8a3': "Most systems could handle it with some adjustments",
+    'sbs-q8a4': "We're built to scale — our systems would adapt",
+    // Dimensions
+    'sbs-dim1': 'Strategy & Direction',
+    'sbs-dim2': 'Operations & Systems',
+    'sbs-dim3': 'Technology & AI',
+    'sbs-dim4': 'Growth & Scalability',
+    // Profiles
+    'sbs-p1-name': 'The Explorer',
+    'sbs-p1-desc': "Your business runs on energy and instinct — and that's exactly what got you this far. But growth is starting to feel harder without clearer systems and structure. The exciting part? You're sitting on enormous potential. Even small, strategic changes at this stage can unlock outsized results.",
+    'sbs-p1-rec': "Start with clarity: map your core processes, identify your best growth channels, and choose the right tools for your stage. A strategy session can help you pinpoint the 2–3 changes that would make the biggest immediate difference.",
+    'sbs-p2-name': 'The Builder',
+    'sbs-p2-desc': "You've started building the foundations — some processes exist, tools are in place, and growth is happening. But things still feel more manual than they should. Systems don't fully connect, key knowledge lives in people's heads, and scaling feels like a stretch. You're at a pivotal moment.",
+    'sbs-p2-rec': "Focus on connecting the dots: integrate your tools, document critical workflows, and start tracking the metrics that actually drive decisions. A strategy session can help you prioritize which systems to build next for maximum impact.",
+    'sbs-p3-name': 'The Optimizer',
+    'sbs-p3-desc': "Your business has real structure. Workflows are documented, tools are working together, and your team knows what they're responsible for. You're in a strong position — the next frontier is efficiency. There's meaningful opportunity to remove friction, automate repetitive work, and use AI to make faster, better decisions.",
+    'sbs-p3-rec': "Look for automation and AI opportunities within your existing workflows. You have the foundation — now it's about working smarter, not harder. A strategy session can help you pinpoint exactly where AI and automation will save the most time and create the most value.",
+    'sbs-p4-name': 'The Accelerator',
+    'sbs-p4-desc': "You've built a machine that works. Systems scale, teams operate with autonomy, data drives decisions, and technology is a strategic advantage. You're already ahead of most companies at your stage. The opportunity now is to push further — using AI, advanced automation, and smarter systems to multiply what your team can do.",
+    'sbs-p4-rec': "Explore the cutting edge: AI-powered decision-making, predictive insights, and systems that learn and improve over time. A strategy session can help you identify the next wave of leverage and competitive advantage.",
+    // Results UI
+    'sbs-breakdown': 'Your Breakdown',
+    'sbs-rec-title': 'What this means for you',
+    'sbs-cta-h3': 'Curious what the next step looks like?',
+    'sbs-cta-p': 'Every business is different. A 30-minute strategy call can help you identify the highest-leverage moves for yours.',
+    'sbs-form-name': 'Your name',
+    'sbs-form-email': 'Email',
+    'sbs-form-company': 'Company name',
+    'sbs-form-size': 'Team size',
+    'sbs-form-size-1': 'Just me',
+    'sbs-form-size-2': '2–5',
+    'sbs-form-size-3': '6–15',
+    'sbs-form-size-4': '16–50',
+    'sbs-form-size-5': '50+',
+    'sbs-form-submit': 'Book a Free Strategy Call',
+    'sbs-form-note': 'No sales pitch. Just a useful conversation about your business.',
+    'sbs-success-h3': "You're all set!",
+    'sbs-success-p': "We'll be in touch soon to schedule your strategy call.",
+    'sbs-success-book': 'Book Your Strategy Call Now',
+    'sbs-retake': '&larr; Retake the diagnostic',
+    // Footer
+    'footer-tagline': 'Human intelligence, amplified by AI.',
+    'footer-about': 'About',
+    'footer-services': 'Services',
+    'footer-insights': 'Insights',
+    'footer-contact': 'Contact',
+  },
+  it: {
+    // Meta
+    'meta-title': 'Yuman — Intelligenza Umana. Amplificata dall\'AI.',
+    'meta-desc': 'Yuman aiuta le aziende a innovare, automatizzare e crescere combinando strategia umana con sistemi potenziati dall\'AI.',
+    // Nav
+    'nav-services': 'Servizi',
+    'nav-process': 'Come Lavoriamo',
+    'nav-about': 'Chi Siamo',
+    'nav-faq': 'FAQ',
+    'nav-cta': 'Contattaci',
+    // Hero
+    'hero-label': 'Consulenza & Innovazione',
+    'hero-h1': 'Intelligenza Umana.<br>Amplificata dall\'AI.',
+    'hero-sub': 'Aiutiamo le aziende a innovare, automatizzare e crescere combinando strategia umana con sistemi potenziati dall\'intelligenza artificiale.',
+    'hero-body': 'Yuman aiuta le aziende a semplificare le operazioni, migliorare il processo decisionale e costruire sistemi scalabili che generano crescita reale.',
+    'hero-cta': 'Prenota una Consulenza',
+    'hero-cta2': 'Scopri i Servizi ',
+    // Problem
+    'problem-label': 'La Sfida',
+    'problem-h2': 'Molte aziende vogliono innovare. Poche sanno da dove iniziare.',
+    'problem-p1': 'Molte piccole aziende sono sopraffatte dalla tecnologia, da strumenti frammentati e strategie poco chiare. Vogliono crescere, automatizzare i processi e migliorare l\'efficienza — ma il percorso da seguire è spesso poco chiaro.',
+    'problem-p2': 'Yuman aiuta le aziende a orientarsi e a progettare sistemi pratici che funzionano davvero.',
+    // Services header
+    'services-label': 'Cosa Facciamo',
+    'services-h2': 'Come Yuman Aiuta<br>le Aziende a Crescere',
+    // Service cards
+    's1-title': 'Automazione AI',
+    's1-desc': 'Progettiamo workflow AI-powered che semplificano le operazioni e riducono il lavoro ripetitivo.',
+    's2-title': 'Strategia Aziendale & Innovazione',
+    's2-desc': 'Aiutiamo le aziende a ripensare il modo in cui operano, identificare opportunità e progettare sistemi più intelligenti.',
+    's3-title': 'Analisi di Mercato & Clienti',
+    's3-desc': 'Definiamo il cliente ideale, analizziamo i competitor e individuiamo le reali opportunità di crescita.',
+    's4-title': 'Sistemi di Crescita & Vendita',
+    's4-desc': 'Costruiamo approcci strutturati per vendite, marketing e espansione aziendale scalabile.',
+    // Service details
+    'sd1-title': 'Automazione AI',
+    'sd1-p1': 'Molti team dedicano ore a task che potrebbero essere automatizzati in pochi minuti. Identifichiamo i colli di bottiglia nelle tue operazioni — dalla gestione dei lead e l\'inserimento dati al reporting e alla comunicazione interna — e progettiamo workflow AI-powered che gestiscono il lavoro ripetitivo al posto tuo.',
+    'sd1-p2': 'Colleghiamo gli strumenti che già usi in automazioni fluide e ne introduciamo di nuovi dove aggiungono valore reale. L\'obiettivo non è mai l\'automazione fine a sé stessa — è liberare il tuo team per concentrarsi sul lavoro che genera davvero crescita.',
+    'sd-looks-label': 'Come si concretizza',
+    'sd1-looks': 'Acquisizione automatica dei lead e arricchimento CRM. Sequenze email assistite dall\'AI e follow-up automatici. Dashboard di reporting interno che si aggiornano da sole. Orchestrazione dei workflow che collega vendite, operazioni e marketing in un unico sistema.',
+    'sd2-title': 'Strategia Aziendale & Innovazione',
+    'sd2-p1': 'La crescita non arriva dal fare di più — arriva dal fare le cose giuste. Lavoriamo con founder e team di leadership per fare un passo indietro, rivalutare come opera il business e identificare dove sono le vere opportunità.',
+    'sd2-p2': 'Questo significa analizzare il tuo modello di business, la value proposition, i processi interni e il posizionamento competitivo con occhi nuovi. Ti aiutiamo a costruire una roadmap chiara che collega la tua visione a step concreti e realizzabili — dal product-market fit alla strategia go-to-market.',
+    'sd2-looks': 'Analisi e ottimizzazione del modello di business. Strategia GTM e pianificazione del lancio. Audit operativi per eliminare le inefficienze. Workshop di innovazione per esplorare nuovi mercati, prodotti o flussi di revenue. Roadmap strategiche con milestones e responsabilità.',
+    'sd3-title': 'Analisi di Mercato & Clienti',
+    'sd3-p1': 'Non puoi far crescere ciò che non comprendi. Aiutiamo le aziende a definire e affinare il loro Ideal Customer Profile (ICP) e le buyer personas — non con supposizioni, ma con i dati. Analizziamo i tuoi clienti esistenti, studiamo la concorrenza e identifichiamo i gap di mercato che rappresentano opportunità reali.',
+    'sd3-p2': 'Da lì, costruiamo liste di prospect mirate, mappiamo il panorama competitivo e progettiamo un posizionamento che risuona con il pubblico giusto. Questa è la base da cui ogni strategia di crescita dovrebbe partire — ed è lo step che la maggior parte delle aziende salta.',
+    'sd3-looks': 'Workshop di definizione ICP e persona basati su dati reali. Analisi dei competitor e identificazione dei gap di mercato. Costruzione di liste prospect con contatti verificati e arricchiti. Segmentazione del pubblico per strategie outbound e inbound. Ricerche di mercato per validare nuove idee prima di investire.',
+    'sd4-title': 'Sistemi di Crescita & Vendita',
+    'sd4-p1': 'Avere un ottimo prodotto non basta — serve un sistema che generi lead in modo costante, coltivi i prospect e li converta in clienti. Aiutiamo le aziende a costruire quel sistema da zero o a correggere ciò che non funziona.',
+    'sd4-p2': 'Questo include la selezione dei canali giusti per il tuo pubblico — che sia LinkedIn per l\'outreach B2B, Reddit e community per l\'engagement di nicchia, o Meta e paid media per scalare. Progettiamo anche strategie editoriali e piani di contenuto per mantenere il tuo brand visibile e rilevante, con una voce coerente su ogni piattaforma.',
+    'sd4-looks': 'Progettazione pipeline vendite e configurazione CRM. Sistemi di prospecting outbound con arricchimento e sequencing automatizzato. Strategia canali — scelta tra LinkedIn, email, Reddit, Meta o organico in base al tuo pubblico. Calendari editoriali e content strategy per una presenza di brand costante. Modelli di lead scoring e ottimizzazione delle conversioni.',
+    // Process
+    'process-label': 'Come Lavoriamo',
+    'process-h2': 'Un Approccio Pratico all\'Innovazione',
+    'step1-num': 'Fase 01',
+    'step1-title': 'Comprendere',
+    'step1-desc': 'Analizziamo il tuo business, i workflow, i clienti e le sfide di crescita per costruire un quadro chiaro di dove sei e dove vuoi arrivare.',
+    'step2-num': 'Fase 02',
+    'step2-title': 'Progettare',
+    'step2-desc': 'Costruiamo la strategia, i sistemi e l\'architettura di automazione che supportano i tuoi obiettivi — piani pratici radicati nella tua realtà.',
+    'step3-num': 'Fase 03',
+    'step3-title': 'Implementare',
+    'step3-desc': 'Ti aiutiamo a implementare strumenti, workflow e processi che rendono il tuo business più efficiente e scalabile — con supporto diretto in ogni fase.',
+    // Outcomes
+    'outcomes-label': 'Risultati',
+    'outcomes-h2': 'Cosa Aiutiamo i Team a Raggiungere',
+    'outcome-1': 'Lancio di prodotti SaaS in nuovi mercati con una strategia GTM strutturata',
+    'outcome-2': 'Automazione delle operazioni interne con workflow AI che fanno risparmiare ore ogni settimana',
+    'outcome-3': 'Costruzione della roadmap GTM e del playbook vendite per startup early-stage',
+    'outcome-4': 'Definizione del posizionamento prodotto, della narrativa e della brand voice per nuove iniziative',
+    'outcome-5': 'Progettazione di sistemi di crescita scalabili con processi di vendita e marketing ripetibili',
+    'outcome-6': 'Creazione di strategie editoriali e piani di contenuto che generano visibilità costante del brand',
+    // Audience
+    'audience-label': 'Con Chi Lavoriamo',
+    'audience-h2': 'Yuman È Ideale Per',
+    'aud-1': 'Startup early-stage in cerca di struttura e direzione',
+    'aud-2': 'Team guidati dal founder che costruiscono i primi sistemi scalabili',
+    'aud-3': 'Aziende SaaS e AI pronte ad accelerare la crescita',
+    'aud-4': 'Startup in espansione verso nuovi mercati o verticali',
+    'aud-5': 'Aziende che vogliono semplificare le operazioni con l\'AI',
+    'aud-6': 'Team che cercano un partner strategico, non solo consulenza',
+    // Founder
+    'founder-label-text': 'La Storia',
+    'founder-h2': 'Chi È Yuman',
+    'founder-p1': 'Yuman è stato creato per aiutare le startup a collegare strategia, operazioni e crescita in un unico sistema coerente.',
+    'founder-p2': 'Con esperienza in vendite, strategia GTM e crescita startup, Yuman si concentra sull\'esecuzione pratica — costruendo sistemi che aiutano davvero i team a scalare. Non framework per il gusto di farlo. Non strumenti per il gusto di usarli. Solo pensiero chiaro, sistemi intelligenti e il tipo di supporto operativo che fa la differenza.',
+    'founder-bio': 'Ho trascorso oltre 10 anni nel settore SaaS e tecnologico, lavorando sia con aziende tech globali che con startup in fase iniziale. Nel corso della mia carriera ho guidato team di vendita e account management, costruito funzioni di business development e aiutato aziende a progettare strategie di crescita scalabili.',
+    'founder-bio-2': 'Oggi il mio lavoro si concentra sull\'aiutare le aziende a combinare strategia, strumenti AI e sistemi operativi per diventare più efficienti e crescere con chiarezza. Sono particolarmente interessato a come la tecnologia possa amplificare il processo decisionale umano mantenendo le persone al centro.',
+    'founder-bio-3': 'Il mio approccio si fonda su una forte etica ed è influenzato dalla filosofia Stoica, valorizzando disciplina, chiarezza e pensiero a lungo termine nella costruzione di business sostenibili.',
+    'founder-bio-4': 'Se qualcosa di tutto questo risuona con te, non esitare a contattarmi. Sono sempre curioso di scoprire cosa stanno costruendo gli altri e felice di fare una chiacchierata in qualsiasi momento.',
+    // Value
+    'value-label': 'La Nostra Filosofia',
+    'value-h2': 'La tecnologia deve potenziare le persone.',
+    'value-p': 'L\'AI è potente, ma il suo vero valore emerge quando si combina con l\'intuizione umana e il pensiero strategico. Yuman si concentra sulla creazione di sistemi in cui la tecnologia supporta decisioni migliori, team più forti e una crescita sostenibile.',
+    // CTA
+    'cta-label': 'Inizia Qui',
+    'cta-h2': 'Pronto a Costruire un Business Più Intelligente?',
+    'cta-p': 'Che tu voglia introdurre l\'AI, migliorare le operazioni o sbloccare nuove opportunità di crescita, Yuman ti aiuta a progettare il percorso giusto.',
+    'cta-btn': 'Prenota una Consulenza ',
+    // Call Preparation
+    'prep-h3': 'Come posso prepararmi per la prima call strategica?',
+    'prep-intro': 'Per rendere la sessione il pi\u00f9 utile possibile, \u00e8 consigliabile arrivare preparati con alcune informazioni chiave sulla tua azienda.',
+    'prep-before-label': 'Cose utili a cui pensare prima',
+    'prep-b1': 'Il tuo prodotto o servizio e il problema che risolve',
+    'prep-b2': 'I tuoi attuali clienti target o mercato di riferimento',
+    'prep-b3': 'Come acquisisci attualmente i clienti (se lo fai)',
+    'prep-b4': 'Le principali sfide che stai affrontando nella crescita o nelle operazioni',
+    'prep-b5': 'Strumenti o sistemi che gi\u00e0 utilizzi (CRM, automazione, marketing tools, ecc.)',
+    'prep-b6': 'Come sarebbe il successo per te nei prossimi 6\u201312 mesi',
+    'prep-during-label': 'Durante la call tipicamente discuteremo di',
+    'prep-d1': 'Il tuo attuale modello di business e posizionamento',
+    'prep-d2': 'Il profilo cliente ideale e le buyer personas',
+    'prep-d3': 'Possibili canali di crescita e strategie di acquisizione',
+    'prep-d4': 'Colli di bottiglia operativi o inefficienze',
+    'prep-d5': 'Opportunit\u00e0 per introdurre automazione o sistemi pi\u00f9 intelligenti',
+    'prep-goal': 'L\'obiettivo della call \u00e8 identificare le opportunit\u00e0 a maggiore impatto per il tuo business e delineare i prossimi passi.',
+    // FAQ
+    'faq-label': 'Domande Frequenti',
+    'faq-h2': 'Domande Frequenti',
+    'faq-q1': 'Quanto velocemente possiamo lanciare la prima campagna o esperimento di crescita?',
+    'faq-a1': 'Di solito entro 1\u20132 settimane dalla sessione strategica iniziale. I tempi esatti dipendono dalla chiarezza dell\'ICP, dalla costruzione delle liste e dall\'impostazione della campagna.',
+    'faq-q2': 'Come si svolge la prima sessione strategica?',
+    'faq-a2': 'Una sessione di lavoro focalizzata in cui analizziamo il tuo prodotto, mercato e le attuali attivit\u00e0 di crescita. L\'obiettivo \u00e8 identificare le opportunit\u00e0 a maggiore impatto e definire le prime azioni.',
+    'faq-q3': 'Aiutate a definire il Profilo Cliente Ideale e le buyer personas?',
+    'faq-a3': 'S\u00ec. Affiniamo il tuo ICP analizzando il prodotto, i segnali di mercato e i clienti esistenti. Questo aiuta a focalizzare messaggi, targeting e selezione dei canali.',
+    'faq-q4': 'Come identificate i canali di acquisizione giusti per il nostro business?',
+    'faq-a4': 'La selezione dei canali dipende dal comportamento del pubblico e dal tipo di prodotto. Testiamo e prioritizziamo piattaforme come LinkedIn, email, contenuti, Reddit o canali a pagamento.',
+    'faq-q5': 'Aiutate con la lead generation e la costruzione di liste prospect mirate?',
+    'faq-a5': 'S\u00ec. Progettiamo processi strutturati di costruzione liste basati sul tuo ICP e sulle personas. Questo include il sourcing dei prospect, la loro qualificazione e la preparazione per l\'outreach.',
+    'faq-q6': 'Potete aiutarci a progettare campagne outbound (LinkedIn, email, ecc.)?',
+    'faq-a6': 'S\u00ec. Progettiamo la struttura della campagna, i messaggi e le sequenze di outreach. L\'obiettivo \u00e8 creare conversazioni anzich\u00e9 inviare messaggi di vendita generici.',
+    'faq-q7': 'Aiutate anche con la strategia di contenuti ed editoriale per i founder?',
+    'faq-a7': 'S\u00ec. Possiamo progettare una strategia di contenuti allineata al tuo posizionamento e al tuo pubblico. Questo include temi, formati e pianificazione editoriale per una pubblicazione costante.',
+    'faq-q8': 'Fate solo consulenza o aiutate anche nell\'implementazione dei sistemi?',
+    'faq-a8': 'Entrambi. Aiuto a progettare la strategia e supporto anche l\'implementazione di workflow e campagne. L\'obiettivo \u00e8 trasformare le idee in sistemi operativi che il tuo team pu\u00f2 gestire.',
+    'faq-q9': 'Dobbiamo acquistare strumenti o software specifici per lavorare insieme?',
+    'faq-a9': 'A volte, ma cerchiamo sempre di lavorare prima con gli strumenti che gi\u00e0 utilizzi. Se raccomandiamo nuovi tool, vengono scelti in base a semplicit\u00e0 e impatto reale.',
+    // Nav – Diagnostic
+    'nav-diagnostic': 'Diagnostica',
+    // Assessment (Smart Business Score)
+    'sbs-badge': 'Diagnostica Gratuita',
+    'sbs-h1': 'Quanto è Smart<br>la Tua Azienda?',
+    'sbs-lead': '8 domande rapide per scoprire quanto la tua azienda è pronta a crescere con sistemi più intelligenti, operazioni migliori e la tecnologia giusta.',
+    'sbs-start': 'Inizia la Diagnostica',
+    'sbs-meta': 'Circa 2 minuti &middot; Completamente gratuito',
+    'sbs-back': '&larr; Indietro',
+    'sbs-question': 'Domanda',
+    'sbs-of': 'di',
+    // Questions
+    'sbs-q1': 'Come descriveresti la strategia di crescita della tua azienda?',
+    'sbs-q1a1': 'Stiamo trovando la strada man mano — nessun piano formale ancora',
+    'sbs-q1a2': 'Abbiamo una direzione generale, ma niente di documentato',
+    'sbs-q1a3': 'Abbiamo una strategia che rivediamo di tanto in tanto',
+    'sbs-q1a4': 'Obiettivi chiari, un piano documentato e revisioni regolari',
+    'sbs-q2': 'Come funzionano le tue operazioni quotidiane?',
+    'sbs-q2a1': 'Tutto nella testa delle persone — reagiamo alle cose man mano',
+    'sbs-q2a2': 'Abbiamo alcuni processi, ma sono inconsistenti',
+    'sbs-q2a3': 'La maggior parte dei workflow è documentata e generalmente seguita',
+    'sbs-q2a4': 'Le operazioni funzionano con sistemi chiari e minime emergenze',
+    'sbs-q3': 'Com\'è il tuo attuale stack di strumenti?',
+    'sbs-q3a1': 'Fogli di calcolo, email e molta improvvisazione',
+    'sbs-q3a2': 'Abbiamo degli strumenti, ma non comunicano tra loro',
+    'sbs-q3a3': 'I nostri strumenti chiave sono collegati e supportano workflow reali',
+    'sbs-q3a4': 'Sistemi completamente integrati che valutiamo e miglioriamo regolarmente',
+    'sbs-q4': 'Come trovi e acquisisci nuovi clienti attualmente?',
+    'sbs-q4a1': 'Principalmente tramite passaparola e rete personale',
+    'sbs-q4a2': 'Facciamo del marketing, ma non è sistematico',
+    'sbs-q4a3': 'Abbiamo canali definiti e monitoriamo metriche di base',
+    'sbs-q4a4': 'Strategia multi-canale con dati chiari su cosa funziona',
+    'sbs-q5': 'A che punto è il tuo team con l\'AI?',
+    'sbs-q5a1': 'Ne abbiamo sentito parlare ma non l\'abbiamo davvero esplorata',
+    'sbs-q5a2': 'Alcune persone sperimentano con strumenti come ChatGPT',
+    'sbs-q5a3': 'Usiamo l\'AI regolarmente per compiti e workflow specifici',
+    'sbs-q5a4': 'L\'AI fa parte del nostro modo di lavorare e prendere decisioni',
+    'sbs-q6': 'Come prende decisioni importanti la tua azienda?',
+    'sbs-q6a1': 'Principalmente istinto ed esperienza',
+    'sbs-q6a2': 'Guardiamo i dati a volte, ma non c\'è un vero processo',
+    'sbs-q6a3': 'Monitoriamo le metriche chiave e le usiamo per guidare le decisioni',
+    'sbs-q6a4': 'I dati guidano la maggior parte delle nostre scelte strategiche e operative',
+    'sbs-q7': 'Come fluisce il lavoro nel tuo team?',
+    'sbs-q7a1': 'Sono coinvolto in quasi tutto — difficile delegare',
+    'sbs-q7a2': 'Le persone hanno ruoli, ma prendo ancora la maggior parte delle decisioni',
+    'sbs-q7a3': 'I team gestiscono le loro aree con responsabilità chiare',
+    'sbs-q7a4': 'Il lavoro procede autonomamente — mi concentro su strategia e crescita',
+    'sbs-q8': 'Se la tua azienda raddoppiasse domani, cosa succederebbe?',
+    'sbs-q8a1': 'Onestamente? Sarebbe il caos',
+    'sbs-q8a2': 'Ce la caveremmo, ma con seri dolori di crescita',
+    'sbs-q8a3': 'La maggior parte dei sistemi reggerebbe con qualche aggiustamento',
+    'sbs-q8a4': 'Siamo costruiti per scalare — i nostri sistemi si adatterebbero',
+    // Dimensions
+    'sbs-dim1': 'Strategia & Direzione',
+    'sbs-dim2': 'Operazioni & Sistemi',
+    'sbs-dim3': 'Tecnologia & AI',
+    'sbs-dim4': 'Crescita & Scalabilità',
+    // Profiles
+    'sbs-p1-name': 'L\'Esploratore',
+    'sbs-p1-desc': 'La tua azienda funziona grazie all\'energia e all\'istinto — ed è esattamente ciò che ti ha portato fin qui. Ma la crescita inizia a sembrare più difficile senza sistemi e struttura più chiari. La parte entusiasmante? Hai un potenziale enorme. Anche piccoli cambiamenti strategici in questa fase possono generare risultati straordinari.',
+    'sbs-p1-rec': 'Inizia dalla chiarezza: mappa i tuoi processi principali, identifica i migliori canali di crescita e scegli gli strumenti giusti per la tua fase. Una sessione strategica può aiutarti a individuare i 2–3 cambiamenti che farebbero la differenza più grande.',
+    'sbs-p2-name': 'Il Costruttore',
+    'sbs-p2-desc': 'Hai iniziato a costruire le fondamenta — alcuni processi esistono, gli strumenti sono in uso e la crescita sta avvenendo. Ma le cose sembrano ancora più manuali del dovuto. I sistemi non sono completamente collegati, le conoscenze chiave risiedono nella testa delle persone e scalare sembra difficile. Sei in un momento cruciale.',
+    'sbs-p2-rec': 'Concentrati sul collegare i puntini: integra i tuoi strumenti, documenta i workflow critici e inizia a monitorare le metriche che guidano davvero le decisioni. Una sessione strategica può aiutarti a prioritizzare quali sistemi costruire per il massimo impatto.',
+    'sbs-p3-name': 'L\'Ottimizzatore',
+    'sbs-p3-desc': 'La tua azienda ha una vera struttura. I workflow sono documentati, gli strumenti lavorano insieme e il team sa di cosa è responsabile. Sei in una posizione forte — la prossima frontiera è l\'efficienza. C\'è un\'opportunità significativa per rimuovere attriti, automatizzare il lavoro ripetitivo e usare l\'AI per prendere decisioni più rapide e migliori.',
+    'sbs-p3-rec': 'Cerca opportunità di automazione e AI nei tuoi workflow esistenti. Hai le fondamenta — ora si tratta di lavorare in modo più intelligente, non più duro. Una sessione strategica può aiutarti a identificare dove AI e automazione faranno risparmiare più tempo e creeranno più valore.',
+    'sbs-p4-name': 'L\'Acceleratore',
+    'sbs-p4-desc': 'Hai costruito una macchina che funziona. I sistemi scalano, i team operano con autonomia, i dati guidano le decisioni e la tecnologia è un vantaggio strategico. Sei già avanti rispetto alla maggior parte delle aziende nella tua fase. L\'opportunità ora è andare oltre — usando AI, automazione avanzata e sistemi più intelligenti per moltiplicare ciò che il tuo team può fare.',
+    'sbs-p4-rec': 'Esplora l\'avanguardia: decision-making basato sull\'AI, insight predittivi e sistemi che imparano e migliorano nel tempo. Una sessione strategica può aiutarti a identificare la prossima ondata di leva competitiva.',
+    // Results UI
+    'sbs-breakdown': 'Il Tuo Riepilogo',
+    'sbs-rec-title': 'Cosa significa per te',
+    'sbs-cta-h3': 'Curioso di sapere quale potrebbe essere il prossimo passo?',
+    'sbs-cta-p': 'Ogni azienda è diversa. Una chiamata strategica di 30 minuti può aiutarti a identificare le mosse a più alto impatto per la tua.',
+    'sbs-form-name': 'Il tuo nome',
+    'sbs-form-email': 'Email',
+    'sbs-form-company': 'Nome azienda',
+    'sbs-form-size': 'Dimensione team',
+    'sbs-form-size-1': 'Solo io',
+    'sbs-form-size-2': '2–5',
+    'sbs-form-size-3': '6–15',
+    'sbs-form-size-4': '16–50',
+    'sbs-form-size-5': '50+',
+    'sbs-form-submit': 'Prenota una Consulenza Gratuita',
+    'sbs-form-note': 'Nessuna vendita. Solo una conversazione utile sulla tua azienda.',
+    'sbs-success-h3': 'Tutto pronto!',
+    'sbs-success-p': 'Ti contatteremo presto per pianificare la tua consulenza strategica.',
+    'sbs-success-book': 'Prenota Ora la Tua Consulenza',
+    'sbs-retake': '&larr; Rifai la diagnostica',
+    // Footer
+    'footer-tagline': 'Intelligenza umana, amplificata dall\'AI.',
+    'footer-about': 'Chi Siamo',
+    'footer-services': 'Servizi',
+    'footer-insights': 'Approfondimenti',
+    'footer-contact': 'Contatti',
+  }
+};
+
+// ═══════════════════ LANGUAGE SWITCH ═══════════════════
+let currentLang = 'en';
+
+function switchLanguage(lang) {
+  if (lang === currentLang) return;
+  currentLang = lang;
+
+  // Update html lang attribute
+  document.documentElement.lang = lang;
+
+  // Update page title
+  document.title = T[lang]['meta-title'];
+
+  // Update meta description
+  const metaDesc = document.querySelector('meta[name="description"]');
+  if (metaDesc) metaDesc.setAttribute('content', T[lang]['meta-desc']);
+
+  // Update all translatable elements
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (T[lang][key] !== undefined) {
+      el.innerHTML = T[lang][key];
+    }
+  });
+
+  // Update toggle buttons
+  document.querySelectorAll('.lang-toggle button').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.lang === lang);
+  });
+
+  // Re-render assessment in new language
+  if (typeof SBS !== 'undefined') SBS.render();
+}
+
+// Language toggle click handlers
+document.getElementById('langToggle').addEventListener('click', (e) => {
+  const btn = e.target.closest('button[data-lang]');
+  if (btn) switchLanguage(btn.dataset.lang);
+});
+
+// ═══════════════════ MOBILE MENU ═══════════════════
+const menuToggle = document.getElementById('menuToggle');
+const navLinks = document.getElementById('navLinks');
+
+menuToggle.addEventListener('click', () => {
+  menuToggle.classList.toggle('active');
+  navLinks.classList.toggle('active');
+});
+
+navLinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    menuToggle.classList.remove('active');
+    navLinks.classList.remove('active');
+  });
+});
+
+// ═══════════════════ FAQ ACCORDION ═══════════════════
+document.querySelectorAll('.faq-question').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.parentElement;
+    const answer = item.querySelector('.faq-answer');
+    const isOpen = item.classList.contains('open');
+
+    // Close all
+    document.querySelectorAll('.faq-item.open').forEach(openItem => {
+      openItem.classList.remove('open');
+      openItem.querySelector('.faq-answer').style.maxHeight = null;
+    });
+
+    // Open clicked (if it wasn't already open)
+    if (!isOpen) {
+      item.classList.add('open');
+      answer.style.maxHeight = answer.scrollHeight + 'px';
+    }
+  });
+});
+
+// ═══════════════════ SCROLL REVEAL ═══════════════════
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('visible');
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// ═══════════════════ SMART BUSINESS SCORE ═══════════════════
+const SBS = {
+
+  t(key) { return T[currentLang][key] || T['en'][key] || key; },
+
+  questions: [
+    { key: 'sbs-q1', answers: [{ key: 'sbs-q1a1', value: 1 }, { key: 'sbs-q1a2', value: 2 }, { key: 'sbs-q1a3', value: 3 }, { key: 'sbs-q1a4', value: 4 }] },
+    { key: 'sbs-q2', answers: [{ key: 'sbs-q2a1', value: 1 }, { key: 'sbs-q2a2', value: 2 }, { key: 'sbs-q2a3', value: 3 }, { key: 'sbs-q2a4', value: 4 }] },
+    { key: 'sbs-q3', answers: [{ key: 'sbs-q3a1', value: 1 }, { key: 'sbs-q3a2', value: 2 }, { key: 'sbs-q3a3', value: 3 }, { key: 'sbs-q3a4', value: 4 }] },
+    { key: 'sbs-q4', answers: [{ key: 'sbs-q4a1', value: 1 }, { key: 'sbs-q4a2', value: 2 }, { key: 'sbs-q4a3', value: 3 }, { key: 'sbs-q4a4', value: 4 }] },
+    { key: 'sbs-q5', answers: [{ key: 'sbs-q5a1', value: 1 }, { key: 'sbs-q5a2', value: 2 }, { key: 'sbs-q5a3', value: 3 }, { key: 'sbs-q5a4', value: 4 }] },
+    { key: 'sbs-q6', answers: [{ key: 'sbs-q6a1', value: 1 }, { key: 'sbs-q6a2', value: 2 }, { key: 'sbs-q6a3', value: 3 }, { key: 'sbs-q6a4', value: 4 }] },
+    { key: 'sbs-q7', answers: [{ key: 'sbs-q7a1', value: 1 }, { key: 'sbs-q7a2', value: 2 }, { key: 'sbs-q7a3', value: 3 }, { key: 'sbs-q7a4', value: 4 }] },
+    { key: 'sbs-q8', answers: [{ key: 'sbs-q8a1', value: 1 }, { key: 'sbs-q8a2', value: 2 }, { key: 'sbs-q8a3', value: 3 }, { key: 'sbs-q8a4', value: 4 }] }
+  ],
+
+  dimensions: [
+    { key: 'sbs-dim1', qs: [0, 5] },
+    { key: 'sbs-dim2', qs: [1, 6] },
+    { key: 'sbs-dim3', qs: [2, 4] },
+    { key: 'sbs-dim4', qs: [3, 7] }
+  ],
+
+  profiles: [
+    { key: 'sbs-p1', range: [8, 14], color: 'var(--explorer)', hex: '#D97706' },
+    { key: 'sbs-p2', range: [15, 20], color: 'var(--builder)', hex: '#2563EB' },
+    { key: 'sbs-p3', range: [21, 26], color: 'var(--optimizer)', hex: '#059669' },
+    { key: 'sbs-p4', range: [27, 32], color: 'var(--accelerator)', hex: '#7C3AED' }
+  ],
+
+  state: { screen: 'welcome', qi: 0, answers: [] },
+
+  get el() { return document.getElementById('sbs-app'); },
+
+  init() { this.render(); },
+
+  render() {
+    if (!this.el) return;
+    switch (this.state.screen) {
+      case 'welcome':  this.renderWelcome(); break;
+      case 'question': this.renderQuestion(); break;
+      case 'results':  this.renderResults(); break;
+    }
+  },
+
+  renderWelcome() {
+    this.el.innerHTML = `
+      <div class="sbs-welcome sbs-fade-in">
+        <div class="sbs-wrap">
+          <div class="sbs-welcome-inner">
+            <span class="sbs-badge">${this.t('sbs-badge')}</span>
+            <h1>${this.t('sbs-h1')}</h1>
+            <p class="sbs-lead">${this.t('sbs-lead')}</p>
+            <button class="sbs-btn" id="sbsStartBtn">
+              ${this.t('sbs-start')} <span class="sbs-arrow">&rarr;</span>
+            </button>
+            <p class="sbs-welcome-meta">${this.t('sbs-meta')}</p>
+          </div>
+        </div>
+      </div>`;
+    document.getElementById('sbsStartBtn').addEventListener('click', () => {
+      this.state.screen = 'question';
+      this.state.qi = 0;
+      this.render();
+    });
+  },
+
+  renderQuestion() {
+    const q = this.questions[this.state.qi];
+    const existing = this.state.answers[this.state.qi];
+    const pct = ((this.state.qi + 1) / this.questions.length) * 100;
+
+    this.el.innerHTML = `
+      <div class="sbs-progress-bar"><div class="sbs-progress-fill" style="width:${pct}%"></div></div>
+      <div class="sbs-question-screen sbs-fade-in">
+        <div class="sbs-wrap">
+          <div class="sbs-question-meta">
+            ${this.state.qi > 0
+              ? `<button class="sbs-back-btn" id="sbsBackBtn">${this.t('sbs-back')}</button>`
+              : '<span></span>'}
+            <span class="sbs-step">${this.t('sbs-question')} ${this.state.qi + 1} ${this.t('sbs-of')} ${this.questions.length}</span>
+          </div>
+          <h2 class="sbs-question-text">${this.t(q.key)}</h2>
+          <div class="sbs-answers">
+            ${q.answers.map((a, i) => `
+              <button class="sbs-card${existing && existing.idx === i ? ' sbs-selected' : ''}"
+                data-idx="${i}" data-val="${a.value}">
+                ${this.t(a.key)}
+              </button>
+            `).join('')}
+          </div>
+        </div>
+      </div>`;
+
+    const backBtn = document.getElementById('sbsBackBtn');
+    if (backBtn) backBtn.addEventListener('click', () => this.goBack());
+
+    this.el.querySelectorAll('.sbs-card').forEach(card => {
+      card.addEventListener('click', () => {
+        this.handleAnswer(parseInt(card.dataset.idx), parseInt(card.dataset.val));
+      });
+    });
+  },
+
+  handleAnswer(idx, val) {
+    this.state.answers[this.state.qi] = { idx, val };
+    this.el.querySelectorAll('.sbs-card').forEach(c => c.classList.remove('sbs-selected'));
+    this.el.querySelectorAll('.sbs-card')[idx].classList.add('sbs-selected');
+    setTimeout(() => {
+      if (this.state.qi < this.questions.length - 1) {
+        this.state.qi++;
+        this.renderQuestion();
+      } else {
+        this.state.screen = 'results';
+        this.renderResults();
+      }
+    }, 450);
+  },
+
+  goBack() {
+    if (this.state.qi > 0) { this.state.qi--; this.renderQuestion(); }
+  },
+
+  calculate() {
+    const total = this.state.answers.reduce((s, a) => s + a.val, 0);
+    const dims = this.dimensions.map(d => ({
+      label: this.t(d.key),
+      score: d.qs.reduce((s, qi) => s + this.state.answers[qi].val, 0),
+      max: 8
+    }));
+    const profile = this.profiles.find(p => total >= p.range[0] && total <= p.range[1])
+                 || this.profiles[this.profiles.length - 1];
+    return { total, dims, profile };
+  },
+
+  renderResults() {
+    const { total, dims, profile } = this.calculate();
+    const max = this.questions.length * 4;
+    const circ = 2 * Math.PI * 54;
+    const offset = circ * (1 - total / max);
+
+    this.el.innerHTML = `
+      <div class="sbs-results sbs-fade-in">
+        <div class="sbs-wrap">
+          <div class="sbs-results-header">
+            <span class="sbs-profile-badge" style="background:${profile.color}">${this.t(profile.key + '-name')}</span>
+            <div class="sbs-ring-wrapper">
+              <svg class="sbs-ring" viewBox="0 0 120 120">
+                <circle cx="60" cy="60" r="54" class="sbs-ring-bg"/>
+                <circle cx="60" cy="60" r="54" class="sbs-ring-fill"
+                  stroke="${profile.hex}"
+                  stroke-dasharray="${circ}"
+                  stroke-dashoffset="${offset}"/>
+                <text x="60" y="55" text-anchor="middle" class="sbs-ring-label">${total}</text>
+                <text x="60" y="73" text-anchor="middle" class="sbs-ring-sub">${this.t('sbs-of')} ${max}</text>
+              </svg>
+            </div>
+          </div>
+          <p class="sbs-results-desc">${this.t(profile.key + '-desc')}</p>
+          <div class="sbs-dimensions">
+            <p class="sbs-dim-section-label">${this.t('sbs-breakdown')}</p>
+            ${dims.map(d => `
+              <div class="sbs-dim-row">
+                <span class="sbs-dim-label">${d.label}</span>
+                <div class="sbs-dim-track">
+                  <div class="sbs-dim-fill" style="width:${(d.score / d.max) * 100}%;background:${profile.hex}"></div>
+                </div>
+                <span class="sbs-dim-score">${d.score}/${d.max}</span>
+              </div>
+            `).join('')}
+          </div>
+          <div class="sbs-rec">
+            <h3>${this.t('sbs-rec-title')}</h3>
+            <p>${this.t(profile.key + '-rec')}</p>
+          </div>
+          <div class="sbs-cta" id="sbsCtaSection">
+            <h3>${this.t('sbs-cta-h3')}</h3>
+            <p>${this.t('sbs-cta-p')}</p>
+            <form class="sbs-form" id="sbsLeadForm">
+              <div class="sbs-form-grid">
+                <input type="text" name="name" placeholder="${this.t('sbs-form-name')}" required>
+                <input type="email" name="email" placeholder="${this.t('sbs-form-email')}" required>
+                <input type="text" name="company" placeholder="${this.t('sbs-form-company')}">
+                <select name="teamSize" id="sbsTeamSize">
+                  <option value="" disabled selected>${this.t('sbs-form-size')}</option>
+                  <option value="1">${this.t('sbs-form-size-1')}</option>
+                  <option value="2-5">${this.t('sbs-form-size-2')}</option>
+                  <option value="6-15">${this.t('sbs-form-size-3')}</option>
+                  <option value="16-50">${this.t('sbs-form-size-4')}</option>
+                  <option value="50+">${this.t('sbs-form-size-5')}</option>
+                </select>
+              </div>
+              <button type="submit" class="sbs-btn sbs-btn-submit">${this.t('sbs-form-submit')}</button>
+              <p class="sbs-form-note">${this.t('sbs-form-note')}</p>
+            </form>
+          </div>
+          <button class="sbs-retake" id="sbsRetakeBtn">${this.t('sbs-retake')}</button>
+        </div>
+      </div>`;
+
+    document.getElementById('assessment').scrollIntoView({ behavior: 'smooth' });
+
+    const sel = document.getElementById('sbsTeamSize');
+    if (sel) sel.addEventListener('change', () => sel.classList.add('has-value'));
+
+    document.getElementById('sbsLeadForm').addEventListener('submit', (e) => this.handleSubmit(e));
+    document.getElementById('sbsRetakeBtn').addEventListener('click', () => this.retake());
+  },
+
+  handleSubmit(e) {
+    e.preventDefault();
+    const fd = new FormData(e.target);
+    const data = Object.fromEntries(fd.entries());
+    data.score = this.calculate().total;
+    data.profile = this.t(this.calculate().profile.key + '-name');
+    /*
+     * TODO: Connect to your backend / CRM / email service
+     * fetch('https://your-api.com/leads', {
+     *   method: 'POST',
+     *   headers: { 'Content-Type': 'application/json' },
+     *   body: JSON.stringify(data)
+     * });
+     */
+    console.log('Lead captured:', data);
+    document.getElementById('sbsCtaSection').innerHTML = `
+      <div class="sbs-success sbs-fade-in">
+        <div class="sbs-success-icon">&#10003;</div>
+        <h3>${this.t('sbs-success-h3')}</h3>
+        <p>${this.t('sbs-success-p')}</p>
+        <a href="https://calendar.app.google/ZMQcVY6Bqao6Brij7" target="_blank" rel="noopener" class="sbs-btn" style="display:inline-block;margin-top:1.2rem;text-decoration:none;">${this.t('sbs-success-book')}</a>
+      </div>`;
+  },
+
+  retake() {
+    this.state = { screen: 'welcome', qi: 0, answers: [] };
+    this.render();
+    document.getElementById('assessment').scrollIntoView({ behavior: 'smooth' });
+  }
+};
+
+SBS.init();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,15 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+*.swp
+*.swo
+.vscode/
+.idea/
+
+# Design exploration (not part of the live site)
+logo-concept-*.svg
+wordmark-*.svg
+logo-test.html
+smart-business-score.html
